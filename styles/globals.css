@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* You can add your custom styles below */
+body {
+  font-family: 'Inter', sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Optional Bubble Background */
+  body {
+    background: radial-gradient(circle at 20% 20%, #e0f7fa, #ffffff);
+  }
+  
