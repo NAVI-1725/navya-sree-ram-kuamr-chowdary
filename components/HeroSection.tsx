@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { useTheme } from "next-themes";
 
 // Dynamic import without SSR
@@ -84,9 +84,9 @@ export default function HeroSection() {
           </span>
         </h2>
 
-        <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-lg mx-auto md:mx-0">
+        {/* <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-lg mx-auto md:mx-0">
           I create modern, responsive, and beautiful web applications tailored for your needs.
-        </p>
+        </p> */}
 
         <a href="#projects">
           <button className="group flex items-center gap-2 px-6 py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-2xl shadow-lg hover:scale-105 hover:shadow-2xl hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-transform duration-300">
@@ -94,9 +94,37 @@ export default function HeroSection() {
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
         </a>
-      </motion.div>
 
-      {/* Removed Lottie Animation Section */}
+        {/* Stats Section */}
+        <div className="flex flex-wrap justify-center md:justify-start gap-6 mt-10">
+          <div className="text-center">
+            <h3 className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">5+</h3>
+            <p className="text-gray-600 dark:text-gray-400">Projects</p>
+          </div>
+          <div className="text-center">
+            <h3 className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">2+</h3>
+            <p className="text-gray-600 dark:text-gray-400">Years Experience</p>
+          </div>
+          <div className="text-center">
+            <h3 className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">10+</h3>
+            <p className="text-gray-600 dark:text-gray-400">Technologies</p>
+          </div>
+        </div>
+
+        {/* Social Icons (optional) */}
+        <div className="flex gap-4 mt-8 justify-center md:justify-start">
+          <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+            <Github className="w-6 h-6 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition" />
+          </a>
+          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
+            <Linkedin className="w-6 h-6 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition" />
+          </a>
+          <a href="mailto:yourmail@example.com">
+            <Mail className="w-6 h-6 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition" />
+          </a>
+        </div>
+
+      </motion.div>
 
       {/* Right Image Section */}
       <motion.div
