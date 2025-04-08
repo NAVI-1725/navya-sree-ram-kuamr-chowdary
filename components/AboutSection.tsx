@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -17,30 +16,36 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-gradient-to-br from-indigo-100 via-white to-cyan-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-6 md:p-10 min-h-[110vh] flex flex-col items-center justify-center text-center pt-40 pb-20"
+      className="relative overflow-hidden bg-gradient-to-br from-indigo-100 via-white to-cyan-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-8 md:p-16 min-h-[110vh] flex flex-col items-center justify-center pt-32 pb-20"
     >
       {/* Background Blobs */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-purple-300 dark:bg-purple-800 opacity-20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-300 dark:bg-cyan-800 opacity-20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute top-[-100px] left-[-100px] w-96 h-96 bg-purple-300 dark:bg-purple-800 opacity-20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-[-100px] right-[-100px] w-96 h-96 bg-cyan-300 dark:bg-cyan-800 opacity-20 rounded-full blur-3xl animate-pulse" />
 
-      {/* Layout Wrapper */}
-      <div className="flex flex-col md:flex-row w-full max-w-7xl items-start justify-center gap-10">
-        
-        {/* Left Side - About Content */}
-        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
-          {/* Profile Image */}
-          <motion.img
-            src={images[currentImage]}
-            alt="Navi Profile"
-            className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-xl mb-6 transition-all duration-700"
+      {/* Layout */}
+      <div className="flex flex-col md:flex-row w-full max-w-7xl items-center justify-between gap-20 relative z-10">
+        {/* Left - Profile & About */}
+        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-6">
+          {/* Profile Image with Glow */}
+          <motion.div
+            className="relative group w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1 }}
-          />
+          >
+            {/* Outer Glow */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-indigo-400 via-purple-500 to-pink-400 blur-2xl opacity-50 group-hover:opacity-80 transition duration-500" />
+            {/* Image */}
+            <img
+              src={images[currentImage]}
+              alt="Profile"
+              className="relative w-full h-full object-cover rounded-full shadow-2xl group-hover:scale-110 transition-transform duration-700"
+            />
+          </motion.div>
 
           {/* Heading */}
           <motion.h2
-            className="text-3xl md:text-5xl font-extrabold text-gray-800 dark:text-white mb-4"
+            className="mt-4 text-4xl md:text-5xl font-bold text-gray-800 dark:text-white leading-tight"
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -48,9 +53,9 @@ export default function AboutSection() {
             👋 About Me
           </motion.h2>
 
-          {/* Main Intro */}
+          {/* Intro */}
           <motion.p
-            className="text-base md:text-lg max-w-xl text-gray-700 dark:text-gray-300 font-medium leading-normal mb-3"
+            className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-xl leading-relaxed"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 1 }}
@@ -59,7 +64,7 @@ export default function AboutSection() {
             <span className="text-indigo-600 dark:text-indigo-400 font-bold">
               Penumarthi Navya Sree Ram Kumar Chowdary
             </span>
-            , a CSE student at <strong>IIIT Raichur</strong> 🇮🇳. I merge{" "}
+            , a CSE student at <strong>IIIT Raichur</strong> 🇮🇳. I blend{" "}
             <span className="text-cyan-600 dark:text-cyan-400 font-semibold">
               coding
             </span>{" "}
@@ -67,32 +72,32 @@ export default function AboutSection() {
             <span className="text-cyan-600 dark:text-cyan-400 font-semibold">
               creativity
             </span>{" "}
-            to build impactful solutions.
+            to build cool things.
           </motion.p>
 
           {/* Achievements */}
           <motion.p
-            className="text-sm md:text-base max-w-xl text-gray-600 dark:text-gray-400 mb-6"
+            className="text-base text-gray-600 dark:text-gray-400 max-w-xl"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 1 }}
           >
-            Ex-Intern at <strong>BOSCH</strong> 🔧,{" "}
+            Former intern at <strong>BOSCH</strong> 🔧,{" "}
             <span className="text-pink-600 dark:text-pink-400 font-semibold">
               Amazon Hackathon Finalist
             </span>{" "}
-            🚀, led <strong>IIIT Raichur Website Redesign</strong> 🎨.
+            🚀, and lead of <strong>IIIT Raichur Website Redesign</strong> 🎨.
           </motion.p>
         </div>
 
-        {/* Right Side - Skills and GitHub */}
-        <div className="flex-1 flex flex-col items-center">
-          {/* Skills Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full mb-8">
+        {/* Right - Skills & GitHub */}
+        <div className="flex-1 flex flex-col items-center gap-12">
+          {/* Skills */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full">
             {skills.map((skill, index) => (
               <motion.div
                 key={skill.title}
-                className="p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:scale-105 transition-transform duration-300"
+                className="p-6 bg-white dark:bg-gray-800 rounded-3xl shadow-xl hover:shadow-indigo-500/40 transition-shadow transform hover:scale-105 duration-300 text-center"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{
@@ -101,10 +106,10 @@ export default function AboutSection() {
                   stiffness: 150,
                 }}
               >
-                <h3 className="text-lg font-bold text-indigo-700 dark:text-indigo-400 mb-2">
+                <h3 className="text-xl font-bold text-indigo-700 dark:text-indigo-400 mb-2">
                   {skill.title}
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm">
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
                   {skill.description}
                 </p>
               </motion.div>
@@ -112,23 +117,23 @@ export default function AboutSection() {
           </div>
 
           {/* GitHub Section */}
-          <section id="github" className="text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">
+          <section id="github" className="text-center w-full">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-6">
               🚀 My GitHub Contributions
             </h2>
             <img
               src="https://github-readme-stats.vercel.app/api?username=NAVI-1725&show_icons=true&theme=radical"
               alt="GitHub Stats"
-              className="mx-auto rounded-lg shadow-lg"
+              className="mx-auto rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500"
             />
           </section>
         </div>
       </div>
 
-      {/* Centered Connect Button */}
+      {/* Connect Button */}
       <motion.a
         href="#contact"
-        className="mt-12 inline-block px-8 py-4 bg-indigo-600 text-white rounded-full text-base font-semibold shadow-md hover:bg-indigo-700 hover:scale-110 transition-all duration-300"
+        className="mt-12 inline-block px-10 py-4 bg-indigo-600 text-white rounded-full text-lg font-semibold shadow-md hover:bg-indigo-700 hover:scale-110 transition-all duration-300"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 2, duration: 0.8 }}
@@ -150,6 +155,6 @@ const skills = [
   },
   {
     title: "Creative Edge 🎯",
-    description: "UI/UX lover focusing on minimal designs, fluid animations.",
+    description: "UI/UX enthusiast passionate about minimal and fluid designs.",
   },
 ];

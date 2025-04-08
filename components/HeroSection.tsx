@@ -7,7 +7,6 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { useTheme } from "next-themes";
 
-// Dynamic import without SSR
 const Typewriter = dynamic(
   () => import("react-simple-typewriter").then((mod) => mod.Typewriter),
   { ssr: false }
@@ -19,7 +18,7 @@ export default function HeroSection() {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true); // Set true only after client-side mount
+    setIsClient(true);
   }, []);
 
   const titles = [
@@ -37,12 +36,12 @@ export default function HeroSection() {
     "MLOps Engineer",
   ];
 
-  if (!isClient) return null; // Avoid rendering on server
+  if (!isClient) return null;
 
   return (
     <section
       id="home"
-      className="relative min-h-screen pt-24 flex flex-col md:flex-row items-center justify-center px-4 gap-8 overflow-hidden 
+      className="relative min-h-screen flex flex-col md:flex-row items-center justify-between px-6 sm:px-10 md:px-16 lg:px-24 py-20 gap-12 overflow-hidden
       bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-1000"
     >
       {/* Background Circles */}
@@ -50,26 +49,26 @@ export default function HeroSection() {
         ref={backgroundRef}
         className="absolute inset-0 -z-10 flex justify-center items-center pointer-events-none"
       >
-        <div className="absolute w-[600px] h-[600px] bg-purple-300 opacity-20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute w-[400px] h-[400px] bg-blue-200 opacity-20 rounded-full blur-2xl animate-bounce delay-1000" />
+        <div className="absolute w-[500px] h-[500px] sm:w-[600px] sm:h-[600px] bg-purple-300 opacity-20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] bg-blue-200 opacity-20 rounded-full blur-2xl animate-bounce delay-1000" />
       </div>
 
       {/* Left Text Section */}
       <motion.div
-        className="flex-1 text-center md:text-left md:order-1"
-        initial={{ opacity: 0, x: -50 }}
+        className="flex-1 text-center md:text-left space-y-6"
+        initial={{ opacity: 0, x: -60 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-800 dark:text-white mb-4 leading-tight flex flex-wrap justify-center md:justify-start">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-800 dark:text-white leading-snug">
           Hi, I'm{" "}
-          <span className="text-indigo-600 dark:text-indigo-400 ml-2">
+          <span className="text-indigo-600 dark:text-indigo-400">
             Navya Sree Ram Kumar Chowdary
           </span>{" "}
           👋
         </h1>
 
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-600 dark:text-gray-300 mb-6">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-600 dark:text-gray-300">
           I'm a{" "}
           <span className="text-indigo-600 dark:text-indigo-400">
             <Typewriter
@@ -84,62 +83,57 @@ export default function HeroSection() {
           </span>
         </h2>
 
-        {/* <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-lg mx-auto md:mx-0">
-          I create modern, responsive, and beautiful web applications tailored for your needs.
-        </p> */}
-
         <a href="#projects">
-          <button className="group flex items-center gap-2 px-6 py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-2xl shadow-lg hover:scale-105 hover:shadow-2xl hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-transform duration-300">
-            View My Work{" "}
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          <button className="group flex items-center gap-3 px-6 py-3 sm:px-8 sm:py-4 bg-indigo-600 dark:bg-indigo-500 text-white rounded-full shadow-lg hover:scale-105 hover:shadow-2xl hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-all duration-300">
+            View My Work
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
         </a>
 
         {/* Stats Section */}
-        <div className="flex flex-wrap justify-center md:justify-start gap-6 mt-10">
-          <div className="text-center">
-            <h3 className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">5+</h3>
-            <p className="text-gray-600 dark:text-gray-400">Projects</p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">2+</h3>
-            <p className="text-gray-600 dark:text-gray-400">Years Experience</p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">10+</h3>
-            <p className="text-gray-600 dark:text-gray-400">Technologies</p>
-          </div>
+        <div className="flex flex-wrap justify-center md:justify-start gap-6 sm:gap-8 mt-10">
+          {[
+            { title: "5+", desc: "Projects" },
+            { title: "2+", desc: "Years Experience" },
+            { title: "10+", desc: "Technologies" },
+          ].map((stat, idx) => (
+            <div key={idx} className="text-center">
+              <h3 className="text-3xl sm:text-4xl font-bold text-indigo-600 dark:text-indigo-400">{stat.title}</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">{stat.desc}</p>
+            </div>
+          ))}
         </div>
 
-        {/* Social Icons (optional) */}
-        <div className="flex gap-4 mt-8 justify-center md:justify-start">
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-            <Github className="w-6 h-6 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition" />
+        {/* Social Icons */}
+        <div className="flex gap-6 mt-8 justify-center md:justify-start">
+          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition">
+            <Github className="w-6 h-6 sm:w-7 sm:h-7 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400" />
           </a>
-          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
-            <Linkedin className="w-6 h-6 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition" />
+          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition">
+            <Linkedin className="w-6 h-6 sm:w-7 sm:h-7 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400" />
           </a>
-          <a href="mailto:yourmail@example.com">
-            <Mail className="w-6 h-6 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition" />
+          <a href="mailto:yourmail@example.com" className="hover:scale-110 transition">
+            <Mail className="w-6 h-6 sm:w-7 sm:h-7 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400" />
           </a>
         </div>
-
       </motion.div>
 
       {/* Right Image Section */}
       <motion.div
-        className="flex-1 md:order-2"
-        initial={{ opacity: 0, x: 50 }}
+        className="flex-1 flex justify-center md:justify-end"
+        initial={{ opacity: 0, x: 60 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
       >
-        <Image
-          src="/navi.jpg"
-          alt="Navya Sree Ram Kumar Chowdary"
-          width={400}
-          height={400}
-          className="rounded-3xl shadow-xl border-4 border-indigo-400 dark:border-indigo-600 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-        />
+        <div className="relative group w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96">
+          <Image
+            src="/navi.jpg"
+            alt="Navya Sree Ram Kumar Chowdary"
+            fill
+            className="object-cover rounded-3xl shadow-2xl border-4 border-indigo-400 dark:border-indigo-600 transition-all duration-500 group-hover:scale-105 group-hover:rotate-1 group-hover:shadow-3xl"
+          />
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-indigo-400 to-blue-400 opacity-0 group-hover:opacity-10 transition-all duration-500" />
+        </div>
       </motion.div>
     </section>
   );
