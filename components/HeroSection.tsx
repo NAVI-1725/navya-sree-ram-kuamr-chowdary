@@ -100,7 +100,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, ease: "easeInOut" }}
         >
           <Image
-            src="/navi2.jpg"
+            src="/navi1.jpg"
             alt="Navi Profile"
             width={420}
             height={420}
