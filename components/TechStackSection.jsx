@@ -26,14 +26,19 @@ export default function TechStackSection() {
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.07, rotate: -3 }}
             transition={{ duration: 0.4, delay: index * 0.05 }}
-            className="group flex flex-col items-center justify-center text-center bg-white/30 backdrop-blur-xl border border-white/20 rounded-3xl p-6 shadow-xl hover:shadow-blue-400 transform transition-all duration-700 cursor-pointer hover:-translate-y-2"
+            className="group flex flex-col items-center justify-center text-center 
+              bg-gradient-to-br from-pink-100 via-blue-100 to-violet-100 
+              backdrop-blur-xl border border-white/30 rounded-3xl p-6 
+              shadow-xl hover:shadow-pink-300 transform transition-all duration-700 
+              cursor-pointer hover:-translate-y-2 
+              hover:bg-gradient-to-br hover:from-pink-200 hover:via-blue-200 hover:to-violet-200"
           >
             <img
               src={item.icon}
               alt={item.name}
               className="w-14 h-14 mb-4 transition-transform duration-300 group-hover:scale-110"
             />
-            <span className="text-base md:text-lg font-semibold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">
+            <span className="text-base md:text-lg font-semibold text-gray-800 group-hover:text-pink-600 transition-colors duration-300">
               {item.name}
             </span>
           </motion.div>

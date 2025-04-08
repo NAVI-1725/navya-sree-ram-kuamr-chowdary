@@ -90,7 +90,7 @@ export default function ContactSection() {
         transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
         className="text-xl md:text-2xl text-gray-800 dark:text-gray-200 font-medium"
       >
-        📞 Mobile:{" "}
+        📞 :{" "}
         <span className="text-blue-600 dark:text-blue-400 font-bold">+91-80742-88868</span>
       </motion.p>
     </section>

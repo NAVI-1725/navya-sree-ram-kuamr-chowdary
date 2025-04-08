@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react"; // ✅ Added Sun and Moon icons
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
@@ -17,6 +17,7 @@ const navItems = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false); // ✅ darkMode state
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
@@ -43,8 +44,17 @@ export default function Navbar() {
     };
   }, []);
 
+  // ✅ Handle dark mode toggle
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
   return (
-    <header className="fixed top-0 w-full z-50 bg-white/30 backdrop-blur-md shadow-lg">
+    <header className="fixed top-0 w-full z-50 bg-white/30 dark:bg-gray-900/30 backdrop-blur-md shadow-lg transition-colors duration-300">
       <nav className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
         <Link href="#home" className="flex items-center space-x-3 ml-[-12px] md:ml-0">
           <img
@@ -64,7 +74,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => {
             const isActive = activeSection === item.href;
             return (
@@ -79,7 +89,7 @@ export default function Navbar() {
                   className={`relative px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 ${
                     isActive
                       ? "bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 text-white shadow-md"
-                      : "text-gray-800 hover:text-indigo-600 hover:bg-indigo-100"
+                      : "text-gray-800 dark:text-gray-200 hover:text-indigo-600 hover:bg-indigo-100 dark:hover:bg-gray-700"
                   }`}
                 >
                   {item.label}
@@ -87,13 +97,40 @@ export default function Navbar() {
               </motion.div>
             );
           })}
+
+          {/* Dark Mode Toggle Button */}
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="ml-4 p-2 rounded-full bg-indigo-100 dark:bg-gray-700 hover:bg-indigo-200 dark:hover:bg-gray-600 transition-colors"
+            aria-label="Toggle Dark Mode"
+          >
+            {darkMode ? (
+              <Sun className="w-5 h-5 text-yellow-400" />
+            ) : (
+              <Moon className="w-5 h-5 text-indigo-500" />
+            )}
+          </button>
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div className="md:hidden flex items-center">
+        <div className="md:hidden flex items-center space-x-3">
+          {/* Mobile Dark Mode Toggle */}
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="p-2 rounded-full bg-indigo-100 dark:bg-gray-700 hover:bg-indigo-200 dark:hover:bg-gray-600 transition-colors"
+            aria-label="Toggle Dark Mode"
+          >
+            {darkMode ? (
+              <Sun className="w-5 h-5 text-yellow-400" />
+            ) : (
+              <Moon className="w-5 h-5 text-indigo-500" />
+            )}
+          </button>
+
+          {/* Hamburger Menu */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="text-indigo-700"
+            className="text-indigo-700 dark:text-indigo-300"
             aria-label="Toggle menu"
           >
             {menuOpen ? <X size={32} /> : <Menu size={32} />}
@@ -109,7 +146,7 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white/70 backdrop-blur-xl shadow-xl rounded-b-2xl flex flex-col items-center space-y-6 py-6"
+            className="md:hidden bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl shadow-xl rounded-b-2xl flex flex-col items-center space-y-6 py-6"
           >
             {navItems.map((item) => {
               const isActive = activeSection === item.href;
@@ -121,7 +158,7 @@ export default function Navbar() {
                   className={`text-base px-6 py-2 rounded-xl font-medium transition-all duration-300 ${
                     isActive
                       ? "bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 text-white shadow-md"
-                      : "text-gray-800 hover:text-indigo-600 hover:bg-indigo-100"
+                      : "text-gray-800 dark:text-gray-200 hover:text-indigo-600 hover:bg-indigo-100 dark:hover:bg-gray-700"
                   }`}
                 >
                   {item.label}
@@ -134,4 +171,3 @@ export default function Navbar() {
     </header>
   );
 }
-

@@ -8,6 +8,7 @@ import ExperienceSection from "@/components/ExperienceSection";
 import Footer from "@/components/Footer";
 import TechStackSection from "@/components/TechStackSection"; 
 import ResumeSection from "@/components/ResumeSection";
+import DarkModeToggle from "@/components/DarkModeToggle";
 
 
 export default function Home() {
