@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function EducationSection() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <section
       id="education"
@@ -25,15 +28,29 @@ export default function EducationSection() {
       </motion.h2>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Education Card */}
+        {/* Education Cards */}
         {educationList.map((edu, index) => (
           <motion.div
             key={edu.title}
-            className="flex flex-col items-center text-center p-6 bg-white/70 dark:bg-white/10 backdrop-blur-2xl border border-white/20 dark:border-white/10 rounded-2xl shadow-md hover:shadow-lg dark:shadow-gray-700 hover:shadow-purple-300 dark:hover:shadow-purple-700 transition duration-500"
-            whileHover={{ scale: 1.05 }}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            animate={
+              hoveredIndex === null
+                ? { scale: 1, zIndex: 1, opacity: 1 }
+                : hoveredIndex === index
+                ? { scale: 1.25, zIndex: 10, opacity: 1, rotate: 0 }
+                : { scale: 0.85, zIndex: 0, opacity: 0.5, rotate: -2 }
+            }
+            transition={{ type: "spring", stiffness: 500, damping: 18 }}
+            className={`flex flex-col items-center text-center p-6 backdrop-blur-2xl border rounded-2xl shadow-md transition-all duration-500 ${
+              hoveredIndex === null
+                ? "bg-white/70 dark:bg-white/10 border-white/20 dark:border-white/10"
+                : hoveredIndex === index
+                ? "bg-white dark:bg-white/10 shadow-lg shadow-purple-300 dark:shadow-purple-700"
+                : "bg-white/50 dark:bg-white/5"
+            }`}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
           >
             <Image
               src={edu.image}
@@ -45,7 +62,9 @@ export default function EducationSection() {
             <h3 className="text-lg font-bold text-indigo-600 dark:text-indigo-400">
               {edu.title}
             </h3>
-            <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">{edu.institution}</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
+              {edu.institution}
+            </p>
             <p className="text-xs text-gray-500 dark:text-gray-400">{edu.year}</p>
           </motion.div>
         ))}
