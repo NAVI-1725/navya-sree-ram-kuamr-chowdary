@@ -6,57 +6,70 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-gradient-to-r from-indigo-50 via-white to-cyan-50 p-10 md:p-20 text-center min-h-screen flex flex-col items-center justify-center"
+      className="relative overflow-hidden bg-gradient-to-br from-indigo-100 via-white to-cyan-100 p-10 md:p-20 text-center min-h-screen flex flex-col items-center justify-center"
     >
-      {/* Background Blurred Shapes */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-purple-300 opacity-30 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-cyan-300 opacity-30 rounded-full blur-3xl animate-pulse" />
+      {/* Animated Blurred Background Blobs */}
+      <div className="absolute top-0 left-0 w-80 h-80 bg-purple-300 opacity-20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-cyan-300 opacity-20 rounded-full blur-3xl animate-pulse" />
 
+      {/* Section Heading */}
       <motion.h2
-        className="text-5xl md:text-7xl font-extrabold mb-6 text-gray-800 drop-shadow-lg"
+        className="text-5xl md:text-7xl font-extrabold mb-8 text-gray-800 drop-shadow-xl"
         initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        About Me
+        👋 About Me
       </motion.h2>
 
+      {/* Introduction */}
       <motion.p
-        className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-700 leading-relaxed"
+        className="text-lg md:text-2xl max-w-4xl mx-auto text-gray-700 leading-loose font-medium"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 1 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.4, duration: 1 }}
       >
-        🚀 I’m a passionate <span className="font-semibold text-indigo-500">Full-Stack Developer</span> with a strong love for crafting elegant, high-performance web apps.
-        Skilled in <span className="font-semibold text-cyan-500">Next.js, React, Node.js, MongoDB, TailwindCSS</span> and modern UI/UX design principles.
-        I thrive on building products that are not only functional but also <span className="italic">visually captivating</span>.
+        I’m <span className="text-indigo-600 font-bold">Penumarthi Navya Sree Ram Kumar Chowdary</span>, a results-driven CSE student at <strong>IIIT Raichur</strong> 🇮🇳, passionate about blending code and creativity. With a strong foundation in{" "}
+        <span className="text-cyan-600 font-semibold">Python, Full-Stack Web Dev, GenAI, and ML</span>, I love building practical, impactful solutions—from chatbots to recommendation engines.
       </motion.p>
 
-      {/* Skill Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14">
+      {/* Experience Highlights */}
+      <motion.p
+        className="text-base md:text-xl max-w-4xl mx-auto text-gray-600 mt-6"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.6, duration: 1 }}
+      >
+        I've interned as a Software Engineer at <strong>BOSCH</strong> 🔧, developed award-winning projects like the{" "}
+        <span className="font-semibold text-pink-600">Amazon Hackathon Finalist</span> recommendation system, and led the redesign of the{" "}
+        <strong>IIIT Raichur website</strong>—earning the <em>Best UI/UX</em> award.
+      </motion.p>
+
+      {/* Skills Summary Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
         {skills.map((skill, index) => (
           <motion.div
             key={skill.title}
-            className="p-8 bg-white rounded-2xl shadow-2xl transform transition-all hover:scale-105 hover:rotate-1 hover:shadow-3xl hover:bg-gradient-to-tr from-indigo-200 to-cyan-200 backdrop-blur-lg"
+            className="p-6 bg-white backdrop-blur-lg bg-opacity-60 border border-gray-200 rounded-3xl shadow-xl hover:scale-105 hover:shadow-2xl transition-transform duration-300"
             initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.7 + index * 0.2, type: "spring", stiffness: 100 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.8 + index * 0.2, type: "spring", stiffness: 100 }}
           >
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">{skill.title}</h3>
-            <p className="text-gray-600">{skill.description}</p>
+            <h3 className="text-xl font-bold text-indigo-700 mb-2">{skill.title}</h3>
+            <p className="text-gray-700">{skill.description}</p>
           </motion.div>
         ))}
       </div>
 
-      {/* Call to Action Button */}
+      {/* Call to Action */}
       <motion.a
         href="#contact"
-        className="mt-16 inline-block px-8 py-4 text-lg font-semibold text-white bg-indigo-600 rounded-full shadow-lg hover:bg-indigo-700 hover:scale-110 transform transition-all duration-300"
+        className="mt-14 inline-block px-8 py-4 text-lg font-semibold text-white bg-indigo-600 rounded-full shadow-md hover:bg-indigo-700 hover:scale-110 transition duration-300"
         initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.8, duration: 0.8 }}
       >
-        Let's Connect
+        📬 Let’s Connect!
       </motion.a>
     </section>
   );
@@ -64,15 +77,15 @@ export default function AboutSection() {
 
 const skills = [
   {
-    title: "Frontend Wizard ✨",
-    description: "React.js, Next.js, TailwindCSS, Responsive UI/UX, Animations.",
+    title: "Tech Stack 🧠",
+    description: "Proficient in Python, C, JavaScript, HTML, CSS, and GenAI tools like LLAMA & Langchain.",
   },
   {
-    title: "Backend Architect 🛠️",
-    description: "Node.js, Express.js, MongoDB, REST APIs, Authentication.",
+    title: "Dev Power ⚙️",
+    description: "Hands-on experience with the MERN stack, REST APIs, MongoDB, and Firebase integration.",
   },
   {
-    title: "Creative Designer 🎨",
-    description: "Modern, clean UI designs, Figma prototypes, Micro-interactions.",
+    title: "Creative Edge 🎯",
+    description: "UI/UX enthusiast with a passion for clean design, animations, and immersive user experiences.",
   },
 ];

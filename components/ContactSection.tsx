@@ -4,70 +4,94 @@ import { FaWhatsapp, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function ContactSection() {
+  const icons = [
+    {
+      href: "https://wa.me/918074288868",
+      icon: <FaWhatsapp />,
+      color: "text-green-500",
+      shadow: "hover:shadow-green-400"
+    },
+    {
+      href: "mailto:navichowdary1725@gmail.com",
+      icon: <FaEnvelope />,
+      color: "text-red-500",
+      shadow: "hover:shadow-red-400"
+    },
+    {
+      href: "https://www.linkedin.com/in/navya-sree-ram-kumar-chowdary-780157298/",
+      icon: <FaLinkedin />,
+      color: "text-blue-500",
+      shadow: "hover:shadow-blue-400"
+    },
+    {
+      href: "https://github.com/NAVI-1725",
+      icon: <FaGithub />,
+      color: "text-black dark:text-white",
+      shadow: "hover:shadow-gray-600"
+    }
+  ];
+
   return (
-    <section id="contact" className="p-10 bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 min-h-screen flex flex-col items-center justify-center">
-      <motion.h2 
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="text-5xl font-extrabold text-gray-800 mb-12 tracking-wide"
-      >
-        Get In Touch
-      </motion.h2>
-
-      <div className="flex flex-wrap justify-center gap-10 mb-8">
-        <motion.a
-          href="https://wa.me/918074288868"
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.2, rotate: 10 }}
-          whileTap={{ scale: 0.9 }}
-          className="text-green-500 text-5xl transition-transform hover:shadow-2xl hover:shadow-green-400 rounded-full p-4 bg-white"
-        >
-          <FaWhatsapp />
-        </motion.a>
-
-        <motion.a
-          href="mailto:navichowdary1725@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.2, rotate: 10 }}
-          whileTap={{ scale: 0.9 }}
-          className="text-red-500 text-5xl transition-transform hover:shadow-2xl hover:shadow-red-400 rounded-full p-4 bg-white"
-        >
-          <FaEnvelope />
-        </motion.a>
-
-        <motion.a
-          href="https://www.linkedin.com/in/navya-sree-ram-kumar-chowdary-780157298/"
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.2, rotate: 10 }}
-          whileTap={{ scale: 0.9 }}
-          className="text-blue-500 text-5xl transition-transform hover:shadow-2xl hover:shadow-blue-400 rounded-full p-4 bg-white"
-        >
-          <FaLinkedin />
-        </motion.a>
-
-        <motion.a
-          href="https://github.com/NAVI-1725"
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.2, rotate: 10 }}
-          whileTap={{ scale: 0.9 }}
-          className="text-black text-5xl transition-transform hover:shadow-2xl hover:shadow-gray-600 rounded-full p-4 bg-white"
-        >
-          <FaGithub />
-        </motion.a>
+    <section
+      id="contact"
+      className="relative z-10 min-h-screen px-6 py-20 flex flex-col justify-center items-center text-center overflow-hidden"
+    >
+      {/* Animated Background Blobs */}
+      <div className="absolute inset-0 -z-10 opacity-30 pointer-events-none">
+        <div className="absolute w-[32rem] h-[32rem] top-10 left-10 bg-blue-300 rounded-full blur-[100px] animate-[blob_8s_infinite]" />
+        <div className="absolute w-[32rem] h-[32rem] bottom-20 right-10 bg-pink-400 rounded-full blur-[100px] animate-[blob_12s_infinite]" />
       </div>
 
-      <motion.p
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: 0.5, type: "spring", stiffness: 100 }}
-        className="text-xl text-gray-700 font-semibold"
+      <motion.h2
+        initial={{ opacity: 0, y: -60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
+        className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 text-transparent bg-clip-text drop-shadow-2xl mb-16"
       >
-        📞 Mobile: <span className="text-blue-600">+91-80742-88868</span>
+        🚀 Get In Touch
+      </motion.h2>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.2,
+              delayChildren: 0.2,
+            }
+          }
+        }}
+        className="flex flex-wrap justify-center gap-10 mb-14"
+      >
+        {icons.map((link, i) => (
+          <motion.a
+            key={i}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            variants={{
+              hidden: { y: 40, opacity: 0 },
+              visible: { y: 0, opacity: 1 }
+            }}
+            whileHover={{ scale: 1.2, rotate: 8 }}
+            whileTap={{ scale: 0.9 }}
+            className={`bg-white/30 dark:bg-black/40 backdrop-blur-lg p-6 text-5xl rounded-full ${link.color} transition-transform duration-300 shadow-xl ${link.shadow}`}
+          >
+            {link.icon}
+          </motion.a>
+        ))}
+      </motion.div>
+
+      <motion.p
+        initial={{ opacity: 0, scale: 0.85 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+        className="text-xl md:text-2xl text-gray-800 dark:text-gray-200 font-medium"
+      >
+        📞 Mobile:{" "}
+        <span className="text-blue-600 dark:text-blue-400 font-bold">+91-80742-88868</span>
       </motion.p>
     </section>
   );

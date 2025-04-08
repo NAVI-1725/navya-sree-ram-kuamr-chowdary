@@ -2,16 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* You can add your custom styles below */
+/* Base styles */
 body {
   font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+  background: radial-gradient(circle at 20% 20%, #e0f7fa, #ffffff);
+  color: #1f2937; /* Tailwind's gray-800 for better readability */
 }
-html {
-    scroll-behavior: smooth;
+
+/* Custom Utilities */
+@layer utilities {
+  /* Smooth, elegant bounce for icons or buttons */
+  .animate-bounce-slow {
+    animation: bounceSlow 2.5s infinite;
   }
-  
-  /* Optional Bubble Background */
-  body {
-    background: radial-gradient(circle at 20% 20%, #e0f7fa, #ffffff);
+
+  @keyframes bounceSlow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
   }
-  
+
+  /* Subtle fade-in */
+  .fade-in {
+    animation: fadeIn 1.2s ease-in-out both;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Glow effect for buttons or cards */
+  .glow-hover:hover {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.5), 0 0 40px rgba(139, 92, 246, 0.3);
+    transition: box-shadow 0.3s ease;
+  }
+
+  /* Glassmorphism background */
+  .glass {
+    @apply bg-white/30 backdrop-blur-md border border-white/20;
+  }
+
+  /* Section container with spacing */
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-8;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
