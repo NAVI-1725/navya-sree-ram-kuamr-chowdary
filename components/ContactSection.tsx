@@ -1,9 +1,15 @@
 'use client';
 
+import { useRef, useState } from "react";
 import { FaWhatsapp, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { IoIosArrowDown, IoIosArrowBack } from "react-icons/io";
 
 export default function ContactSection() {
+  const [showCalendar, setShowCalendar] = useState(false);
+  const calendarRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+
   const icons = [
     {
       href: "https://wa.me/918074288868",
@@ -31,97 +37,127 @@ export default function ContactSection() {
     },
   ];
 
+  const handleArrowClick = () => {
+    setShowCalendar(true);
+    setTimeout(() => calendarRef.current?.scrollIntoView({ behavior: "smooth" }), 100);
+  };
+
+  const handleBackClick = () => {
+    setShowCalendar(false);
+    setTimeout(() => contactRef.current?.scrollIntoView({ behavior: "smooth" }), 100);
+  };
+
   return (
-    <section
-      id="contact"
-      className="relative z-10 min-h-screen px-6 py-24 flex flex-col justify-center items-center text-center overflow-hidden bg-white dark:bg-black transition-colors duration-500"
-    >
-      {/* Animated Background Blobs */}
-      <div className="absolute inset-0 -z-10 opacity-30 pointer-events-none">
-        <div className="absolute w-[32rem] h-[32rem] top-10 left-10 bg-blue-300 dark:bg-blue-700 rounded-full blur-[100px] animate-[blob_8s_infinite]" />
-        <div className="absolute w-[32rem] h-[32rem] bottom-20 right-10 bg-pink-400 dark:bg-pink-600 rounded-full blur-[100px] animate-[blob_12s_infinite]" />
-      </div>
+    <>
+      {!showCalendar && (
+        <section
+          ref={contactRef}
+          id="contact"
+          className="relative z-10 min-h-screen px-6 py-24 flex flex-col justify-center items-center text-center overflow-hidden bg-white dark:bg-black transition-colors duration-500"
+        >
+          {/* Background Blobs */}
+          <div className="absolute inset-0 -z-10 opacity-30 pointer-events-none">
+            <div className="absolute w-[32rem] h-[32rem] top-10 left-10 bg-blue-300 dark:bg-blue-700 rounded-full blur-[100px] animate-[blob_8s_infinite]" />
+            <div className="absolute w-[32rem] h-[32rem] bottom-20 right-10 bg-pink-400 dark:bg-pink-600 rounded-full blur-[100px] animate-[blob_12s_infinite]" />
+          </div>
 
-      <motion.h2
-        initial={{ opacity: 0, y: -60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
-        className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 text-transparent bg-clip-text drop-shadow-2xl mb-24"
-      >
-        🚀 Get In Touch
-      </motion.h2>
-
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        variants={{
-          hidden: {},
-          visible: {
-            transition: {
-              staggerChildren: 0.2,
-              delayChildren: 0.2,
-            },
-          },
-        }}
-        className="flex flex-wrap justify-center gap-10 mb-14"
-      >
-        {icons.map((link, i) => (
-          <motion.a
-            key={i}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            variants={{
-              hidden: { y: 40, opacity: 0 },
-              visible: { y: 0, opacity: 1 },
-            }}
-            whileHover={{ scale: 1.2, rotate: 8 }}
-            whileTap={{ scale: 0.9 }}
-            className={`bg-white/40 dark:bg-white/10 backdrop-blur-lg p-6 text-5xl rounded-full ${link.color} transition-all duration-300 shadow-xl ${link.shadow}`}
+          {/* Title */}
+          <motion.h2
+            initial={{ opacity: 0, y: -60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 text-transparent bg-clip-text drop-shadow-2xl mb-24"
           >
-            {link.icon}
-          </motion.a>
-        ))}
-      </motion.div>
+            🚀 Get In Touch
+          </motion.h2>
 
-      <motion.p
-        initial={{ opacity: 0, scale: 0.85 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-        className="text-xl md:text-2xl text-gray-800 dark:text-gray-200 font-medium mb-16"
-      >
-        📞 :{" "}
-        <span className="text-blue-600 dark:text-blue-400 font-bold">
-          +91-80742-88868
-        </span>
-      </motion.p>
+          {/* Social Icons */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.2,
+                  delayChildren: 0.2,
+                },
+              },
+            }}
+            className="flex flex-wrap justify-center gap-10 mb-14"
+          >
+            {icons.map((link, i) => (
+              <motion.a
+                key={i}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                variants={{
+                  hidden: { y: 40, opacity: 0 },
+                  visible: { y: 0, opacity: 1 },
+                }}
+                whileHover={{ scale: 1.2, rotate: 8 }}
+                whileTap={{ scale: 0.9 }}
+                className={`bg-white/40 dark:bg-white/10 backdrop-blur-lg p-6 text-5xl rounded-full ${link.color} transition-all duration-300 shadow-xl ${link.shadow}`}
+              >
+                {link.icon}
+              </motion.a>
+            ))}
+          </motion.div>
 
-      {/* Calendly Heading */}
-      <motion.h3
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
-        className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white mb-8"
-      >
-        🗓️ Schedule a Meet with Navya Sree Ram Kumar Chowdary
-      </motion.h3>
+          {/* Phone */}
+          <motion.p
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+            className="text-lg font-medium text-gray-700 dark:text-white"
+          >
+            📱 +91 80742 88868
+          </motion.p>
 
-      {/* Calendly Scheduler Embed */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-        className="w-full flex justify-center"
-      >
-        <div className="relative overflow-hidden w-full max-w-xl aspect-[4/3]">
-          <iframe
-            src="https://calendly.com/navichowdary1725"
-            className="absolute top-0 left-0 w-full h-full rounded-xl shadow-2xl"
-            frameBorder="0"
-            title="Schedule a Meeting"
-          ></iframe>
-        </div>
-      </motion.div>
-    </section>
+          {/* Calendly Trigger Button */}
+          <motion.button
+            onClick={handleArrowClick}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.9 }}
+            className="mt-16 text-5xl text-blue-600 dark:text-blue-400 animate-bounce"
+          >
+            <IoIosArrowDown />
+          </motion.button>
+        </section>
+      )}
+
+      {/* Calendar Section */}
+      {showCalendar && (
+        <section
+          ref={calendarRef}
+          className="min-h-screen flex justify-center items-center bg-white dark:bg-black transition-colors duration-500 px-6 py-24"
+        >
+          <div className="relative bg-white dark:bg-gray-900 shadow-xl rounded-xl p-10 max-w-3xl w-full text-center">
+            {/* Back Arrow */}
+            <button
+              onClick={handleBackClick}
+              className="absolute left-4 top-4 text-3xl text-gray-600 dark:text-white hover:text-blue-500 transition-all"
+              title="Back"
+            >
+              <IoIosArrowBack />
+            </button>
+
+            <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">
+              📅 Schedule a Meeting
+            </h2>
+            <iframe
+              src="https://calendly.com/navichowdary1725/"
+              width="100%"
+              height="600"
+              className="border-none rounded-md"
+              title="Calendly"
+              allow="fullscreen"
+            ></iframe>
+          </div>
+        </section>
+      )}
+    </>
   );
 }
