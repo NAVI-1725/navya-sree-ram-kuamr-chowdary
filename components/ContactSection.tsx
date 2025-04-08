@@ -34,12 +34,12 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative z-10 min-h-screen px-6 py-20 flex flex-col justify-center items-center text-center overflow-hidden"
+      className="relative z-10 min-h-screen px-6 py-20 flex flex-col justify-center items-center text-center overflow-hidden bg-white dark:bg-black transition-colors duration-500"
     >
       {/* Animated Background Blobs */}
       <div className="absolute inset-0 -z-10 opacity-30 pointer-events-none">
-        <div className="absolute w-[32rem] h-[32rem] top-10 left-10 bg-blue-300 rounded-full blur-[100px] animate-[blob_8s_infinite]" />
-        <div className="absolute w-[32rem] h-[32rem] bottom-20 right-10 bg-pink-400 rounded-full blur-[100px] animate-[blob_12s_infinite]" />
+        <div className="absolute w-[32rem] h-[32rem] top-10 left-10 bg-blue-300 dark:bg-blue-700 rounded-full blur-[100px] animate-[blob_8s_infinite]" />
+        <div className="absolute w-[32rem] h-[32rem] bottom-20 right-10 bg-pink-400 dark:bg-pink-600 rounded-full blur-[100px] animate-[blob_12s_infinite]" />
       </div>
 
       <motion.h2
@@ -77,7 +77,7 @@ export default function ContactSection() {
             }}
             whileHover={{ scale: 1.2, rotate: 8 }}
             whileTap={{ scale: 0.9 }}
-            className={`bg-white/30 dark:bg-black/40 backdrop-blur-lg p-6 text-5xl rounded-full ${link.color} transition-transform duration-300 shadow-xl ${link.shadow}`}
+            className={`bg-white/40 dark:bg-white/10 backdrop-blur-lg p-6 text-5xl rounded-full ${link.color} transition-all duration-300 shadow-xl ${link.shadow}`}
           >
             {link.icon}
           </motion.a>

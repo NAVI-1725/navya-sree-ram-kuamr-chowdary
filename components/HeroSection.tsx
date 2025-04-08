@@ -23,7 +23,8 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen pt-24 flex flex-col md:flex-row items-center justify-center px-4 overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100"
+      className="relative min-h-screen pt-24 flex flex-col md:flex-row items-center justify-center px-4 overflow-hidden 
+      bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800"
     >
       {/* Background Animated Gradient Circles */}
       <div
@@ -41,17 +42,16 @@ export default function HeroSection() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-800 mb-4 leading-tight flex flex-wrap justify-center md:justify-start">
-  Hi, I'm{" "}
-  <span className="text-indigo-600 ml-2">
-    Navya Sree Ram Kumar Chowdary
-  </span> 👋
-</h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-800 dark:text-white mb-4 leading-tight flex flex-wrap justify-center md:justify-start">
+          Hi, I'm{" "}
+          <span className="text-indigo-600 dark:text-indigo-400 ml-2">
+            Navya Sree Ram Kumar Chowdary
+          </span> 👋
+        </h1>
 
-
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-600 mb-6">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-600 dark:text-gray-300 mb-6">
           I'm a{" "}
-          <span className="text-indigo-600">
+          <span className="text-indigo-600 dark:text-indigo-400">
             <Typewriter
               words={[
                 "Frontend Developer",
@@ -77,12 +77,12 @@ export default function HeroSection() {
           </span>
         </h2>
 
-        <p className="text-gray-600 mb-8 max-w-lg mx-auto md:mx-0">
+        <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-lg mx-auto md:mx-0">
           I create modern, responsive, and beautiful web applications tailored for your needs.
         </p>
 
         <a href="#projects">
-          <button className="px-6 py-3 bg-indigo-600 text-white rounded-2xl shadow-lg hover:scale-105 transition-transform">
+          <button className="px-6 py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-2xl shadow-lg hover:scale-105 transition-transform">
             View My Work
           </button>
         </a>
@@ -104,7 +104,7 @@ export default function HeroSection() {
             alt="Navi Profile"
             width={420}
             height={420}
-            className="rounded-full shadow-2xl object-cover border-4 border-indigo-200"
+            className="rounded-full shadow-2xl object-cover border-4 border-indigo-200 dark:border-indigo-500"
           />
         </motion.div>
       </motion.div>

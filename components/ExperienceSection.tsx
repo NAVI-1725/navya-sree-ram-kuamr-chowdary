@@ -6,19 +6,19 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="relative z-10 pt-32 pb-20 px-6 min-h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 overflow-hidden"
+      className="relative z-10 pt-32 pb-20 px-6 min-h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden"
     >
       {/* Animated Background Blobs */}
       <div className="absolute inset-0 -z-10 opacity-30 pointer-events-none">
-        <div className="absolute w-96 h-96 top-0 left-10 bg-purple-300 rounded-full blur-3xl animate-ping" />
-        <div className="absolute w-96 h-96 bottom-0 right-10 bg-pink-400 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute w-96 h-96 top-0 left-10 bg-purple-300 dark:bg-purple-700 rounded-full blur-3xl animate-ping" />
+        <div className="absolute w-96 h-96 bottom-0 right-10 bg-pink-400 dark:bg-pink-700 rounded-full blur-3xl animate-pulse" />
       </div>
 
       <motion.h2
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, type: "spring" }}
-        className="text-4xl md:text-5xl font-extrabold text-center mb-16 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text drop-shadow-2xl"
+        className="text-4xl md:text-5xl font-extrabold text-center mb-16 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-300 dark:via-purple-300 dark:to-pink-300 text-transparent bg-clip-text drop-shadow-2xl"
       >
         💼 Experience
       </motion.h2>
@@ -57,19 +57,19 @@ export default function ExperienceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: i * 0.15 }}
             viewport={{ once: true }}
-            className="relative group bg-white backdrop-blur-xl border border-gray-200 rounded-3xl shadow-lg p-6 md:p-8 transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:-translate-y-1"
+            className="relative group bg-white dark:bg-gray-900 backdrop-blur-xl border border-gray-200 dark:border-gray-700 rounded-3xl shadow-lg p-6 md:p-8 transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:-translate-y-1"
           >
             {/* Color Beam */}
-            <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-30 transition duration-700 bg-gradient-to-br from-pink-300 via-purple-300 to-blue-300 blur-2xl z-0" />
+            <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-30 transition duration-700 bg-gradient-to-br from-pink-300 via-purple-300 to-blue-300 dark:from-pink-700 dark:via-purple-700 dark:to-blue-700 blur-2xl z-0" />
 
             <div className="relative z-10">
-              <h3 className="text-xl md:text-2xl font-semibold text-indigo-600 mb-1">
+              <h3 className="text-xl md:text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-1">
                 {exp.title}
               </h3>
-              <p className="text-gray-800 font-medium mb-2">
+              <p className="text-gray-800 dark:text-gray-300 font-medium mb-2">
                 {exp.org}
               </p>
-              <p className="text-sm text-gray-700 leading-relaxed">
+              <p className="text-sm text-gray-700 dark:text-gray-400 leading-relaxed">
                 {exp.desc}
               </p>
             </div>
