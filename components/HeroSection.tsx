@@ -4,29 +4,23 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Player } from "@lottiefiles/react-lottie-player";
 import { ArrowRight } from "lucide-react";
 import { useTheme } from "next-themes";
 
-import animationDataLight from "../assets/light_animation.json";
-import animationDataDark from "../assets/dark_animation.json";
-
 // Dynamic import without SSR
 const Typewriter = dynamic(
-  () => import("react-simple-typewriter").then(mod => mod.Typewriter),
+  () => import("react-simple-typewriter").then((mod) => mod.Typewriter),
   { ssr: false }
 );
 
 export default function HeroSection() {
-  const backgroundRef = useRef(null);
+  const backgroundRef = useRef<HTMLDivElement>(null);
   const { theme } = useTheme();
-  const [animationData, setAnimationData] = useState(animationDataLight);
-  const [animationKey, setAnimationKey] = useState(0);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setAnimationData(theme === "dark" ? animationDataDark : animationDataLight);
-    setAnimationKey(prev => prev + 1);
-  }, [theme]);
+    setIsClient(true); // Set true only after client-side mount
+  }, []);
 
   const titles = [
     "Frontend Developer",
@@ -42,6 +36,8 @@ export default function HeroSection() {
     "Prompt Engineer",
     "MLOps Engineer",
   ];
+
+  if (!isClient) return null; // Avoid rendering on server
 
   return (
     <section
@@ -100,25 +96,11 @@ export default function HeroSection() {
         </a>
       </motion.div>
 
-      {/* Lottie Animation Middle */}
-      <motion.div
-        className="flex-1 max-w-[400px] w-full md:order-2"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <Player
-          key={animationKey}
-          autoplay
-          loop
-          src={animationData}
-          className="w-full h-auto"
-        />
-      </motion.div>
+      {/* Removed Lottie Animation Section */}
 
       {/* Right Image Section */}
       <motion.div
-        className="flex-1 md:order-3"
+        className="flex-1 md:order-2"
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}

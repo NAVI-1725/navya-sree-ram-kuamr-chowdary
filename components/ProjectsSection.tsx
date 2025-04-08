@@ -54,31 +54,31 @@ export default function ProjectsSection() {
   const [sectionKey, setSectionKey] = useState(0);
 
   useEffect(() => {
-    setSectionKey(Date.now()); // re-trigger animation when path changes
+    setSectionKey(Date.now());
   }, [pathname]);
 
   return (
     <section
       key={sectionKey}
       id="projects"
-      className="relative pt-32 px-6 pb-20 min-h-screen bg-gradient-to-br from-[#e0f2fe] via-[#f5f3ff] to-[#e0f7fa] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden"
+      className="relative pt-28 px-4 pb-16 min-h-screen bg-gradient-to-br from-[#e0f2fe] via-[#f5f3ff] to-[#e0f7fa] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden"
     >
-      {/* Background Animated Blobs */}
+      {/* Background Blobs */}
       <div className="absolute top-0 left-0 w-full h-full -z-10">
-        <div className="absolute w-96 h-96 bg-blue-400 opacity-30 rounded-full blur-3xl animate-ping top-0 left-10" />
-        <div className="absolute w-96 h-96 bg-purple-400 opacity-30 rounded-full blur-3xl animate-pulse right-10 bottom-0" />
+        <div className="absolute w-80 h-80 bg-blue-400 opacity-30 rounded-full blur-3xl animate-ping top-0 left-10" />
+        <div className="absolute w-80 h-80 bg-purple-400 opacity-30 rounded-full blur-3xl animate-pulse right-10 bottom-0" />
       </div>
 
       <motion.h2
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, type: "spring" }}
-        className="text-4xl md:text-5xl font-extrabold text-center text-gray-800 dark:text-white mb-16"
+        className="text-4xl md:text-5xl font-extrabold text-center text-gray-800 dark:text-white mb-12"
       >
         🚀 Featured Projects
       </motion.h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
         {projects.map((project, index) => (
           <motion.div
             key={index}
@@ -86,30 +86,33 @@ export default function ProjectsSection() {
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="relative group bg-white/30 dark:bg-white/10 backdrop-blur-2xl border border-white/20 dark:border-white/10 rounded-3xl shadow-xl p-6 md:p-8 transition-all duration-500 hover:shadow-purple-400 hover:shadow-2xl hover:scale-105 hover:-translate-y-1"
+            className="relative group bg-white/30 dark:bg-white/10 backdrop-blur-2xl border border-white/20 dark:border-white/10 rounded-2xl shadow-xl p-6 transition-all duration-500 hover:shadow-purple-400 hover:shadow-2xl hover:scale-105 hover:-translate-y-1 overflow-hidden"
           >
-            {/* Color Beam */}
-            <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-40 transition-all duration-700 bg-gradient-to-br from-purple-300 via-blue-300 to-transparent blur-xl z-0" />
+            {/* Color Beam on hover */}
+            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-40 transition-all duration-700 bg-gradient-to-br from-purple-300 via-blue-300 to-transparent blur-xl z-0" />
 
-            <div className="relative z-10">
-              <h3 className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-white mb-4">
+            <div className="relative z-10 flex flex-col items-center text-center">
+              <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
                 {project.title}
               </h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm md:text-base mb-6">
+
+              {/* Description hidden by default, visible on hover */}
+              <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-500 mb-4 h-0 group-hover:h-auto overflow-hidden">
                 {project.description}
               </p>
-              <div className="flex gap-4">
+
+              <div className="flex gap-3 mt-auto">
                 <a
                   href={project.codeLink}
                   target="_blank"
-                  className="px-4 py-2 text-sm font-medium rounded-lg bg-purple-600 text-white hover:bg-purple-700 shadow-md transition"
+                  className="px-3 py-2 text-xs font-medium rounded-md bg-purple-600 text-white hover:bg-purple-700 shadow-md transition"
                 >
                   Code
                 </a>
                 <a
                   href={project.liveLink}
                   target="_blank"
-                  className="px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 shadow-md transition"
+                  className="px-3 py-2 text-xs font-medium rounded-md bg-blue-600 text-white hover:bg-blue-700 shadow-md transition"
                 >
                   View
                 </a>

@@ -17,22 +17,22 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-gradient-to-br from-indigo-100 via-white to-cyan-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-6 md:p-10 min-h-[100vh] flex flex-col items-center justify-start text-center pt-20"
+      className="relative overflow-hidden bg-gradient-to-br from-indigo-100 via-white to-cyan-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-6 md:p-10 min-h-[110vh] flex flex-col items-center justify-center text-center pt-40 pb-20"
     >
       {/* Background Blobs */}
-      <div className="absolute top-0 left-0 w-60 h-60 bg-purple-300 dark:bg-purple-800 opacity-20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-0 right-0 w-60 h-60 bg-cyan-300 dark:bg-cyan-800 opacity-20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute top-0 left-0 w-96 h-96 bg-purple-300 dark:bg-purple-800 opacity-20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-300 dark:bg-cyan-800 opacity-20 rounded-full blur-3xl animate-pulse" />
 
       {/* Layout Wrapper */}
-      <div className="flex flex-col md:flex-row w-full max-w-7xl items-center justify-center gap-10">
-
+      <div className="flex flex-col md:flex-row w-full max-w-7xl items-start justify-center gap-10">
+        
         {/* Left Side - About Content */}
-        <div className="flex-1 flex flex-col items-center">
+        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
           {/* Profile Image */}
           <motion.img
             src={images[currentImage]}
             alt="Navi Profile"
-            className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-xl mb-8 mt-10 transition-all duration-700"
+            className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-xl mb-6 transition-all duration-700"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1 }}
@@ -40,7 +40,7 @@ export default function AboutSection() {
 
           {/* Heading */}
           <motion.h2
-            className="text-3xl md:text-5xl font-extrabold text-gray-800 dark:text-white mb-6 drop-shadow-lg"
+            className="text-3xl md:text-5xl font-extrabold text-gray-800 dark:text-white mb-4"
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -50,7 +50,7 @@ export default function AboutSection() {
 
           {/* Main Intro */}
           <motion.p
-            className="text-base md:text-lg max-w-2xl text-gray-700 dark:text-gray-300 font-medium leading-normal mb-4 px-4"
+            className="text-base md:text-lg max-w-xl text-gray-700 dark:text-gray-300 font-medium leading-normal mb-3"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 1 }}
@@ -72,7 +72,7 @@ export default function AboutSection() {
 
           {/* Achievements */}
           <motion.p
-            className="text-sm md:text-base max-w-2xl text-gray-600 dark:text-gray-400 mb-8 px-4"
+            className="text-sm md:text-base max-w-xl text-gray-600 dark:text-gray-400 mb-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 1 }}
@@ -83,9 +83,12 @@ export default function AboutSection() {
             </span>{" "}
             🚀, led <strong>IIIT Raichur Website Redesign</strong> 🎨.
           </motion.p>
+        </div>
 
+        {/* Right Side - Skills and GitHub */}
+        <div className="flex-1 flex flex-col items-center">
           {/* Skills Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-5xl px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full mb-8">
             {skills.map((skill, index) => (
               <motion.div
                 key={skill.title}
@@ -108,10 +111,7 @@ export default function AboutSection() {
             ))}
           </div>
 
-        </div>
-
-        {/* Right Side - GitHub Section + Button */}
-        <div className="flex-1 flex flex-col items-center">
+          {/* GitHub Section */}
           <section id="github" className="text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">
               🚀 My GitHub Contributions
@@ -122,20 +122,19 @@ export default function AboutSection() {
               className="mx-auto rounded-lg shadow-lg"
             />
           </section>
-
-          {/* Call to Action Button moved here */}
-          <motion.a
-            href="#contact"
-            className="mt-8 inline-block px-6 py-3 bg-indigo-600 text-white rounded-full text-sm md:text-base font-semibold shadow-md hover:bg-indigo-700 hover:scale-110 transition-all duration-300"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2, duration: 0.8 }}
-          >
-            📬 Let’s Connect!
-          </motion.a>
         </div>
-
       </div>
+
+      {/* Centered Connect Button */}
+      <motion.a
+        href="#contact"
+        className="mt-12 inline-block px-8 py-4 bg-indigo-600 text-white rounded-full text-base font-semibold shadow-md hover:bg-indigo-700 hover:scale-110 transition-all duration-300"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2, duration: 0.8 }}
+      >
+        📬 Let’s Connect!
+      </motion.a>
     </section>
   );
 }
