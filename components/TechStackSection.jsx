@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { techStack } from "@/constants/techStack";
+import { techStack } from "../constants/TechStack";
 
 export default function TechStackSection() {
   return (
