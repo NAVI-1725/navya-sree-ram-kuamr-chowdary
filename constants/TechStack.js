@@ -11,7 +11,7 @@ export const techStack = [
   { name: "GitHub", icon: "/skill%20logos/github.png" },
   { name: "HTML5", icon: "/skill%20logos/html5.png" },
   { name: "Bootstrap", icon: "/skill%20logos/bootstrap.png" },
-  { name: "CSS3", icon: "/skill%20logos/Postgresql.png" },
+  { name: "PostgreSQL", icon: "/skill%20logos/Postgresql.png" },
   { name: "JavaScript", icon: "/skill%20logos/javascript.png" },
   { name: "PHP", icon: "/skill%20logos/php.svg" },
   { name: "Python", icon: "/skill%20logos/python.png" },
@@ -23,5 +23,5 @@ export const techStack = [
   { name: "React.js", icon: "/skill%20logos/react.svg" },
   { name: "TypeScript", icon: "/skill%20logos/typescript.svg" },
   { name: "Tailwind CSS", icon: "/skill%20logos/tailwindcss.png" },
-  { name: "WebSocket", icon: "/skill%20logos/matlab.svg" },
+  { name: "Matlab", icon: "/skill%20logos/matlab.svg" },
 ];
