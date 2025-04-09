@@ -106,13 +106,13 @@ export default function HeroSection() {
 
         {/* Social Icons */}
         <div className="flex gap-6 mt-8 justify-center md:justify-start">
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition">
+          <a href="https://github.com/NAVI-1725" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition">
             <Github className="w-6 h-6 sm:w-7 sm:h-7 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400" />
           </a>
-          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition">
+          <a href="https://www.linkedin.com/in/navya-sree-ram-kumar-chowdary-780157298/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition">
             <Linkedin className="w-6 h-6 sm:w-7 sm:h-7 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400" />
           </a>
-          <a href="mailto:yourmail@example.com" className="hover:scale-110 transition">
+          <a href="mailto:navichowdary1725@gmail.com" className="hover:scale-110 transition">
             <Mail className="w-6 h-6 sm:w-7 sm:h-7 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400" />
           </a>
         </div>
