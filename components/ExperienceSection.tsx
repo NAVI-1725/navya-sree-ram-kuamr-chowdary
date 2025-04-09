@@ -1,8 +1,52 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function ExperienceSection() {
+  const experiences = [
+    {
+      title: "Software Engineer Intern",
+      org: "BOSCH",
+      desc: "Built AI chatbot using Python, JavaScript, React, Node.js. Integrated AI models: LLAMA, Langchain, HuggingFace.",
+      logo: "/experience/bosch.png",
+    },
+    {
+      title: "Web Developer",
+      org: "IIIT Raichur",
+      desc: "Led institute website redesign using modern frameworks, improving accessibility and performance by 40%.",
+      logo: "/experience/iiitr.png",
+    },
+    {
+      title: "Hackathon - Amazon",
+      org: "Finalist",
+      desc: "Developed an AI-based e-commerce recommendation system using ML and GenAI.",
+      logo: "/experience/amazon.png",
+    },
+    {
+      title: "Hackathon - Indian Space Center",
+      org: "Participant",
+      desc: "Built a machine learning model for satellite image classification.",
+      logo: "/experience/isc.png",
+    },
+    {
+      title: "Blog Publisher",
+      org: "Hashnode & Medium",
+      desc: "Published complete guides on building modern responsive portfolios using Next.js and Tailwind CSS.",
+      logo: "/experience/blog.png", // 👉 Use a general blog icon like blog.png (upload one if not available)
+      links: [
+        {
+          name: "Hashnode",
+          url: "https://createportfoliowithnavi.hashnode.dev/building-a-modern-responsive-portfolio-using-nextjs-and-tailwind-css",
+        },
+        {
+          name: "Medium",
+          url: "https://medium.com/@navichowdary1725/in-todays-digital-era-having-a-personal-portfolio-is-more-important-than-ever-9038c419dafc",
+        },
+      ],
+    },
+  ];
+
   return (
     <section
       id="experience"
@@ -24,33 +68,7 @@ export default function ExperienceSection() {
       </motion.h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-        {[
-          {
-            title: "Software Engineer Intern",
-            org: "BOSCH",
-            desc: "Built AI chatbot using Python, JavaScript, React, Node.js. Integrated AI models: LLAMA, Langchain, HuggingFace.",
-          },
-          {
-            title: "Web Developer",
-            org: "IIIT Raichur",
-            desc: "Led institute website redesign using modern frameworks, improving accessibility and performance by 40%.",
-          },
-          {
-            title: "Hackathon - Amazon",
-            org: "Finalist",
-            desc: "Developed an AI-based e-commerce recommendation system using ML and GenAI.",
-          },
-          {
-            title: "Hackathon - Indian Space Center",
-            org: "Participant",
-            desc: "Built a machine learning model for satellite image classification.",
-          },
-          {
-            title: "Stratovate",
-            org: "AI Business Analyst",
-            desc: "Created an AI-driven analytics tool to visualize and extract business insights.",
-          },
-        ].map((exp, i) => (
+        {experiences.map((exp, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, y: 50 }}
@@ -62,16 +80,43 @@ export default function ExperienceSection() {
             {/* Color Beam */}
             <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-30 transition duration-700 bg-gradient-to-br from-pink-300 via-purple-300 to-blue-300 dark:from-pink-700 dark:via-purple-700 dark:to-blue-700 blur-2xl z-0" />
 
-            <div className="relative z-10">
+            <div className="relative z-10 flex flex-col items-center text-center">
+              {exp.logo && (
+                <div className="mb-4">
+                  <Image
+                    src={exp.logo}
+                    alt={`${exp.org} logo`}
+                    width={80}
+                    height={80}
+                    className="object-contain h-20 w-20 mx-auto"
+                  />
+                </div>
+              )}
               <h3 className="text-xl md:text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-1">
                 {exp.title}
               </h3>
               <p className="text-gray-800 dark:text-gray-300 font-medium mb-2">
                 {exp.org}
               </p>
-              <p className="text-sm text-gray-700 dark:text-gray-400 leading-relaxed">
+              <p className="text-sm text-gray-700 dark:text-gray-400 leading-relaxed mb-2">
                 {exp.desc}
               </p>
+              {/* If blog publisher, show multiple links */}
+              {exp.links && (
+                <div className="flex flex-col gap-2 mt-2">
+                  {exp.links.map((link, idx) => (
+                    <a
+                      key={idx}
+                      href={link.url}
+                      className="text-indigo-500 underline text-sm hover:text-indigo-700 transition"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.name} ↗
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           </motion.div>
         ))}

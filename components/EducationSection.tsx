@@ -52,13 +52,17 @@ export default function EducationSection() {
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.2 }}
           >
-            <Image
-              src={edu.image}
-              alt={edu.alt}
-              width={100}
-              height={100}
-              className="rounded-2xl object-contain shadow-lg mb-6 dark:shadow-gray-700"
-            />
+            {/* Logo Section */}
+            <div className="w-24 h-24 mb-6 relative">
+              <Image
+                src={edu.image}
+                alt={edu.alt}
+                fill
+                className="object-contain rounded-2xl shadow-lg dark:shadow-gray-700"
+                sizes="(max-width: 768px) 100px, 200px"
+              />
+            </div>
+
             <h3 className="text-xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">
               {edu.title}
             </h3>
