@@ -16,7 +16,7 @@ export default function AboutSection() {
   }, []);
 
   // Function to handle direct navigation to contact section
-  const handleConnectClick = (e) => {
+  const handleConnectClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     router.push("/#contact");
     // For immediate navigation without scroll animation
@@ -148,32 +148,23 @@ export default function AboutSection() {
       {/* Connect Button - FIXED FOR MOBILE */}
       <motion.button
         onClick={handleConnectClick}
-        className="mt-12 fixed-button inline-block px-10 py-4 bg-indigo-600 text-white rounded-full text-lg font-semibold shadow-md hover:bg-indigo-700 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer max-w-[90%] z-20 touch-manipulation"
+        className="mt-12 inline-block px-8 py-4 bg-indigo-600 text-white rounded-full text-lg font-semibold shadow-md hover:bg-indigo-700 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer z-20 w-auto"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 2, duration: 0.8 }}
       >
         📬 Let's Connect!
       </motion.button>
-
-      {/* Add this CSS for better mobile handling */}
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .fixed-button {
-            width: auto;
-            min-width: 200px;
-            max-width: 80%;
-            padding-left: 1rem;
-            padding-right: 1rem;
-            font-size: 1rem;
-          }
-        }
-      `}</style>
     </section>
   );
 }
 
-const skills = [
+interface Skill {
+  title: string;
+  description: string;
+}
+
+const skills: Skill[] = [
   {
     title: "Tech Stack 🧠",
     description: "Python, C, JavaScript, HTML, CSS, GenAI tools (LLAMA, Langchain).",
