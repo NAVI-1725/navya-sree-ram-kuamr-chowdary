@@ -4,8 +4,8 @@ import "../styles/globals.css";
 import { ReactNode } from "react";
 
 export const metadata = {
-  title: "Navi Portfolio",
-  description: "Welcome to Navi's Portfolio Website",
+  title: "Portfolio",
+  description: "Welcome to Navya Sree Ram Kumar Chowdary's Portfolio Website",
   icons: {
     icon: "/favicon.ico",   
   },
