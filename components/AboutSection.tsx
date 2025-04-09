@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function AboutSection() {
   const images = ["navi1.jpg", "navi2.jpg", "navi3.jpg"];
@@ -60,7 +61,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 1 }}
           >
-            I’m{" "}
+            I'm{" "}
             <span className="text-indigo-600 dark:text-indigo-400 font-bold">
               Penumarthi Navya Sree Ram Kumar Chowdary
             </span>
@@ -130,16 +131,17 @@ export default function AboutSection() {
         </div>
       </div>
 
-      {/* Connect Button */}
-      <motion.a
-        href="#contact"
-        className="mt-12 inline-block px-10 py-4 bg-indigo-600 text-white rounded-full text-lg font-semibold shadow-md hover:bg-indigo-700 hover:scale-110 transition-all duration-300"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2, duration: 0.8 }}
-      >
-        📬 Let’s Connect!
-      </motion.a>
+      {/* Connect Button - FIXED FOR MOBILE */}
+      <Link href="/#contact">
+        <motion.button
+          className="mt-12 inline-block px-10 py-4 bg-indigo-600 text-white rounded-full text-lg font-semibold shadow-md hover:bg-indigo-700 hover:scale-110 transition-all duration-300 w-auto"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2, duration: 0.8 }}
+        >
+          📬 Let's Connect!
+        </motion.button>
+      </Link>
     </section>
   );
 }
