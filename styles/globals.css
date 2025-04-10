@@ -2,21 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base styles */
+/* Import Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
+/* Base Styles */
 body {
-  font-family: 'Inter', sans-serif;
-  scroll-behavior: smooth;
+  @apply font-sans text-gray-800 bg-white scroll-smooth;
+  font-family: 'Inter', 'Montserrat', sans-serif;
   background: radial-gradient(circle at 20% 20%, #e0f7fa, #ffffff);
-  color: #1f2937; /* Tailwind's gray-800 for better readability */
 }
 
 /* Dark Mode Base */
 .dark body {
-  background: radial-gradient(circle at 20% 20%, #0f172a, #1e293b); /* dark bluish background */
-  color: #f1f5f9; /* light text in dark mode */
+  background: radial-gradient(circle at 20% 20%, #0f172a, #1e293b);
+  color: #f1f5f9;
 }
 
-/* Custom Utilities */
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Resume Container */
+.resume-container {
+  width: 80%;
+  margin: 50px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  animation: moveResume 2s ease-in-out infinite alternate;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 25px;
+}
+
+.section h2 {
+  color: #003366;
+  border-bottom: 2px solid #003366;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Animations */
+@keyframes moveResume {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+/* List Styling */
+ul {
+  margin-left: 20px;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+/* Custom Tailwind Utilities */
 @layer utilities {
   .animate-bounce-slow {
     animation: bounceSlow 2.5s infinite;
@@ -59,6 +126,3 @@ body {
     @apply max-w-6xl mx-auto px-4 sm:px-8;
   }
 }
-
-/* Import Montserrat */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');

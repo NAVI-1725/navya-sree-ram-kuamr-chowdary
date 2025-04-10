@@ -2,13 +2,31 @@
 
 import { FaDownload, FaEye } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function ResumeSection() {
   const [showResume, setShowResume] = useState(false);
+  const resumeRef = useRef<HTMLDivElement>(null);
 
   const handleViewResume = () => setShowResume(true);
   const handleCloseResume = () => setShowResume(false);
+
+  useEffect(() => {
+    if (showResume) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [showResume]);
+
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (resumeRef.current && !resumeRef.current.contains(e.target as Node)) {
+      handleCloseResume();
+    }
+  };
 
   return (
     <section
@@ -53,7 +71,6 @@ export default function ResumeSection() {
         </motion.p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-          {/* View Resume Button */}
           <motion.button
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
@@ -64,7 +81,6 @@ export default function ResumeSection() {
             <span className="text-base font-semibold">View Resume</span>
           </motion.button>
 
-          {/* Download Resume Button */}
           <motion.a
             href="/resume.pdf"
             target="_blank"
@@ -79,7 +95,7 @@ export default function ResumeSection() {
         </div>
       </motion.div>
 
-      {/* Interactive Resume Modal */}
+      {/* Resume Modal */}
       <AnimatePresence>
         {showResume && (
           <motion.div
@@ -87,13 +103,16 @@ export default function ResumeSection() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 py-6"
+            onClick={handleBackdropClick}
           >
             <motion.div
+              ref={resumeRef}
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
               className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-3xl w-full p-8 overflow-y-auto max-h-[90vh] scrollbar-thin scrollbar-thumb-indigo-400 dark:scrollbar-thumb-indigo-700"
+              onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-3xl font-bold text-gray-800 dark:text-white">
@@ -108,7 +127,7 @@ export default function ResumeSection() {
               </div>
 
               <div className="grid gap-6">
-                {/* Section */}
+                {/* Main Sections */}
                 {[
                   {
                     title: "🎯 Objective",
@@ -136,52 +155,30 @@ export default function ResumeSection() {
                   </motion.div>
                 ))}
 
-                {/* Experience */}
+                {/* Experience Section */}
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   className="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-sm"
                 >
                   <h4 className="text-xl font-semibold mb-2">💼 Experience</h4>
                   <ul className="list-disc list-inside space-y-1">
-                    <li>Software Engineer Intern @ BOSCH – Built AI chatbot using Python, JavaScript, React, Node.js with AI models: LLAMA, Langchain, Hugging Face.</li>
-                    <li>Web Developer @ IIIT Raichur – Led website redesign, enhanced accessibility & speed by 40%.</li>
+                    <li>Software Engineer Intern @ BOSCH – Built AI chatbot using Python, JavaScript, React, Node.js with AI models like LLAMA, Langchain, Hugging Face.</li>
+                    <li>Web Developer @ IIIT Raichur – Led website redesign, improved accessibility & performance by 40%.</li>
                     <li>Hackathons – Developed e-commerce recommendation system (Amazon Hackathon), Satellite image classifier (Indian Space Center), AI business analytics tool (Stratovate).</li>
                   </ul>
                 </motion.div>
 
-                {/* Projects */}
+                {/* Projects Section */}
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   className="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-sm"
                 >
                   <h4 className="text-xl font-semibold mb-2">🚀 Projects</h4>
                   <ul className="list-disc list-inside space-y-1">
-                    <li>Library Management System – Full-stack system for book tracking.</li>
-                    <li>Car Chatbot for Bosch – AI-powered vehicle troubleshooting chatbot.</li>
-                    <li>IIIT Raichur Website Redesign – Improved UX/UI and functionality.</li>
+                    <li>Personal Portfolio Website – Built a dynamic, responsive portfolio using React.js, TailwindCSS, Framer Motion.</li>
+                    <li>AI-Powered Resume Builder – Designed a resume generator app leveraging OpenAI APIs.</li>
+                    <li>Chat App – Real-time chat application using Node.js, Socket.io, and MongoDB.</li>
                   </ul>
-                </motion.div>
-
-                {/* Certifications */}
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-sm"
-                >
-                  <h4 className="text-xl font-semibold mb-2">🏅 Certifications & Achievements</h4>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>AWS Certified Cloud Practitioner (In Progress)</li>
-                    <li>Top 10 Finalist – Amazon Hackathon</li>
-                    <li>Best UI/UX Award – IIIT Raichur Website Redesign</li>
-                  </ul>
-                </motion.div>
-
-                {/* Languages */}
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-sm"
-                >
-                  <h4 className="text-xl font-semibold mb-2">🌐 Languages</h4>
-                  <p>English, Telugu, Hindi</p>
                 </motion.div>
               </div>
             </motion.div>
