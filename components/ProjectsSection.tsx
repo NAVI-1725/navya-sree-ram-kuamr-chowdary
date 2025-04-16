@@ -1,10 +1,17 @@
-'use client';
+"use client";
 
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 
 const projects = [
+  {
+    title: "Car Chatbot for BOSCH",
+    description:
+      "AI-powered chatbot using GenAI, MongoDB, Node.js, NLP for vehicle troubleshooting.",
+    codeLink: "https://github.com/NAVI-1725/BCCB-Integrated",
+    liveLink: "https://bccb-integrated-git-main-navi-1725s-projects.vercel.app/",
+  },
   {
     title: "Library Management System",
     description:
@@ -13,18 +20,11 @@ const projects = [
     liveLink: "#",
   },
   {
-    title: "Car Chatbot for BOSCH",
-    description:
-      "AI-powered chatbot using GenAI, MongoDB, Node.js, NLP for vehicle troubleshooting.",
-    codeLink: "#",
-    liveLink: "#",
-  },
-  {
     title: "IIIT Raichur Website Redesign",
     description:
       "Upgraded institute website using modern frameworks, enhancing UX, UI, accessibility & speed by 40%.",
-    codeLink: "#",
-    liveLink: "#",
+    codeLink: "INTERNAL", // Custom flag to handle special behavior
+    liveLink: "https://iiitr.ac.in/",
   },
   {
     title: "AI-based E-commerce Recommender",
@@ -56,6 +56,11 @@ export default function ProjectsSection() {
   useEffect(() => {
     setSectionKey(Date.now());
   }, [pathname]);
+
+  const handleIIITCodeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    alert("Code can't be disclosed due to institute policies.");
+  };
 
   return (
     <section
@@ -96,19 +101,29 @@ export default function ProjectsSection() {
                 {project.title}
               </h3>
 
-              {/* Description hidden by default, visible on hover */}
               <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-500 mb-4 h-0 group-hover:h-auto overflow-hidden">
                 {project.description}
               </p>
 
               <div className="flex gap-3 mt-auto">
-                <a
-                  href={project.codeLink}
-                  target="_blank"
-                  className="px-3 py-2 text-xs font-medium rounded-md bg-purple-600 text-white hover:bg-purple-700 shadow-md transition"
-                >
-                  Code
-                </a>
+                {project.codeLink === "INTERNAL" ? (
+                  <a
+                    href="#"
+                    onClick={handleIIITCodeClick}
+                    className="px-3 py-2 text-xs font-medium rounded-md bg-purple-600 text-white hover:bg-purple-700 shadow-md transition"
+                  >
+                    Code
+                  </a>
+                ) : (
+                  <a
+                    href={project.codeLink}
+                    target="_blank"
+                    className="px-3 py-2 text-xs font-medium rounded-md bg-purple-600 text-white hover:bg-purple-700 shadow-md transition"
+                  >
+                    Code
+                  </a>
+                )}
+
                 <a
                   href={project.liveLink}
                   target="_blank"

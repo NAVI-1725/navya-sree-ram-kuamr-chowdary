@@ -83,6 +83,61 @@ ul li {
   margin-bottom: 8px;
 }
 
+/* 3D Live Motion Animation Background */
+.bg-3d-anim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -20; /* Slightly behind other backgrounds */
+  pointer-events: none;
+  perspective: 800px;
+}
+
+.bg-3d-anim::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  /* A gradient that adapts to light/dark mode: darker in light mode, lighter in dark */
+  background: linear-gradient(60deg, var(--bg-start), var(--bg-end));
+  animation: animate3d 25s linear infinite;
+  transform-style: preserve-3d;
+  opacity: 0.5; /* Increased opacity */
+  mix-blend-mode: overlay;
+}
+
+/* Default colors for light mode (dark background) */
+:root {
+  --bg-start: #1a1a1a;
+  --bg-end: #000000;
+}
+
+/* In dark mode, switch to lighter colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-start: #f0f0f0;
+    --bg-end: #ffffff;
+  }
+}
+
+/* Keyframes for more dynamic 3D motion */
+@keyframes animate3d {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(0px);
+  }
+  50% {
+    transform: rotateX(180deg) rotateY(180deg) translateZ(100px);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) translateZ(0px);
+  }
+}
+
+
 /* Custom Tailwind Utilities */
 @layer utilities {
   .animate-bounce-slow {

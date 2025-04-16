@@ -75,10 +75,10 @@ export default function ExperienceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: i * 0.15 }}
             viewport={{ once: true }}
-            className="relative group bg-white dark:bg-gray-900 backdrop-blur-xl border border-gray-200 dark:border-gray-700 rounded-3xl shadow-lg p-6 md:p-8 transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:-translate-y-1"
+            className="relative group bg-white/70 dark:bg-white/10 backdrop-blur-2xl border border-gray-200 dark:border-white/20 rounded-3xl shadow-lg p-6 md:p-8 transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:-translate-y-1"
           >
             {/* Color Beam */}
-            <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-30 transition duration-700 bg-gradient-to-br from-pink-300 via-purple-300 to-blue-300 dark:from-pink-700 dark:via-purple-700 dark:to-blue-700 blur-2xl z-0" />
+            <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-40 transition duration-700 bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 dark:from-pink-600 dark:via-purple-600 dark:to-blue-600 blur-2xl z-0" />
 
             <div className="relative z-10 flex flex-col items-center text-center">
               {exp.logo && (
@@ -88,7 +88,7 @@ export default function ExperienceSection() {
                     alt={`${exp.org} logo`}
                     width={80}
                     height={80}
-                    className="object-contain h-20 w-20 mx-auto"
+                    className="object-contain h-20 w-20 mx-auto drop-shadow-[0_4px_20px_rgba(255,255,255,0.25)]"
                   />
                 </div>
               )}

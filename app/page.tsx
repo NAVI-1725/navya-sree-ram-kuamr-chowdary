@@ -7,9 +7,7 @@ import EducationSection from "@/components/EducationSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import Footer from "@/components/Footer";
 import TechStackSection from "@/components/TechStackSection"; 
-import ResumeSection from "@/components/ResumeSection";
-import DarkModeToggle from "@/components/DarkModeToggle";
-
+import DarkModeToggle from "@/components/DarkModeToggle"; // optional — remove if not used
 
 export default function Home() {
   return (
@@ -28,14 +26,11 @@ export default function Home() {
         <section id="experience">
           <ExperienceSection />
         </section>
-        <section id="techstack"> {/* ✅ Corrected section ID and component */}
+        <section id="techstack">
           <TechStackSection />
         </section>
         <section id="projects">
           <ProjectsSection />
-        </section>
-        <section id="resume">
-          <ResumeSection />
         </section>
         <section id="contact">
           <ContactSection />
