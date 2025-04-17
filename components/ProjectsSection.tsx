@@ -10,7 +10,7 @@ const projects = [
     description:
       "AI-powered chatbot using GenAI, MongoDB, Node.js, NLP for vehicle troubleshooting.",
     codeLink: "https://github.com/NAVI-1725/BCCB-Integrated",
-    liveLink: "https://bccb-integrated-git-main-navi-1725s-projects.vercel.app/",
+    liveLink: "https://bccb-integrated.vercel.app//",
   },
   {
     title: "Library Management System",
