@@ -2,14 +2,18 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ExperienceSection() {
   const experiences = [
     {
-      title: "Software Engineer Intern",
+      title: "Project for BOSCH",                  // Renamed title
       org: "BOSCH",
-      desc: "Built AI chatbot using Python, JavaScript, React, Node.js. Integrated AI models: LLAMA, Langchain, HuggingFace.",
+      desc: "Collaborated on Mobility Aftermarket marketplace project for BGSW, implementing full-stack features and presenting to leadership.",
       logo: "/experience/bosch.png",
+      certificatePath: "/experience/bosch_certificate.jpg",
+      linkedinUrl:
+        "https://www.linkedin.com/posts/navya-sree-ram-kumar-chowdary-780157298_genai-innovation-gratitude-activity-7319348936240963584-JGB_?utm_source=share&utm_medium=member_android"
     },
     {
       title: "Web Developer",
@@ -33,7 +37,7 @@ export default function ExperienceSection() {
       title: "Blog Publisher",
       org: "Hashnode & Medium",
       desc: "Published complete guides on building modern responsive portfolios using Next.js and Tailwind CSS.",
-      logo: "/experience/blog.png", // 👉 Use a general blog icon like blog.png (upload one if not available)
+      logo: "/experience/blog.png",
       links: [
         {
           name: "Hashnode",
@@ -62,7 +66,7 @@ export default function ExperienceSection() {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, type: "spring" }}
-        className="text-4xl md:text-5xl font-extrabold text-center mb-16 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-300 dark:via-purple-300 dark:to-pink-300 text-transparent bg-clip-text drop-shadow-2xl"
+        className="text-4xl md:text-5xl font-extrabold text-center mb-16 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text drop-shadow-2xl"
       >
         💼 Experience
       </motion.h2>
@@ -98,12 +102,35 @@ export default function ExperienceSection() {
               <p className="text-gray-800 dark:text-gray-300 font-medium mb-2">
                 {exp.org}
               </p>
-              <p className="text-sm text-gray-700 dark:text-gray-400 leading-relaxed mb-2">
+              <p className="text-sm text-gray-700 dark:text-gray-400 leading-relaxed mb-4">
                 {exp.desc}
               </p>
-              {/* If blog publisher, show multiple links */}
+
+              {/* Hover buttons for certificate & LinkedIn */}
+              {exp.certificatePath && exp.linkedinUrl && (
+                <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <a
+                    href={exp.certificatePath}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-indigo-500 text-white rounded-full text-sm shadow hover:bg-indigo-600"
+                  >
+                    View Certificate
+                  </a>
+                  <Link
+                    href={exp.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-blue-500 text-white rounded-full text-sm shadow hover:bg-blue-600"
+                  >
+                    LinkedIn
+                  </Link>
+                </div>
+              )}
+
+              {/* Existing blog/project links */}
               {exp.links && (
-                <div className="flex flex-col gap-2 mt-2">
+                <div className="flex flex-col gap-2 mt-4">
                   {exp.links.map((link, idx) => (
                     <a
                       key={idx}

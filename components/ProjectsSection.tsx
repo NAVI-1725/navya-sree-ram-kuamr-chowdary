@@ -9,7 +9,7 @@ const projects = [
     title: "Car Chatbot for BOSCH",
     description:
       "AI-powered chatbot using GenAI, MongoDB, Node.js, NLP for vehicle troubleshooting.",
-    codeLink: "https://github.com/NAVI-1725/BCCB-Integrated",
+    codeLink: "BOSCH_INTERNAL",
     liveLink: "https://bccb-integrated.vercel.app//",
   },
   {
@@ -23,7 +23,7 @@ const projects = [
     title: "IIIT Raichur Website Redesign",
     description:
       "Upgraded institute website using modern frameworks, enhancing UX, UI, accessibility & speed by 40%.",
-    codeLink: "INTERNAL", // Custom flag to handle special behavior
+    codeLink: "IIIT_INTERNAL",
     liveLink: "https://iiitr.ac.in/",
   },
   {
@@ -57,9 +57,21 @@ export default function ProjectsSection() {
     setSectionKey(Date.now());
   }, [pathname]);
 
-  const handleIIITCodeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleInternalClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    type: string
+  ) => {
     e.preventDefault();
-    alert("Code can't be disclosed due to institute policies.");
+    if (type === "BOSCH_INTERNAL") {
+      alert("Code can't be disclosed due to Company policies.");
+    } else if (type === "IIIT_INTERNAL") {
+      alert("Code can't be disclosed due to Institute policies.");
+    }
+  };
+
+  const handleUnavailableClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    alert("Currently updating or under maintenance. Please check back soon.");
   };
 
   return (
@@ -68,7 +80,6 @@ export default function ProjectsSection() {
       id="projects"
       className="relative pt-28 px-4 pb-16 min-h-screen bg-gradient-to-br from-[#e0f2fe] via-[#f5f3ff] to-[#e0f7fa] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden"
     >
-      {/* Background Blobs */}
       <div className="absolute top-0 left-0 w-full h-full -z-10">
         <div className="absolute w-80 h-80 bg-blue-400 opacity-30 rounded-full blur-3xl animate-ping top-0 left-10" />
         <div className="absolute w-80 h-80 bg-purple-400 opacity-30 rounded-full blur-3xl animate-pulse right-10 bottom-0" />
@@ -93,7 +104,6 @@ export default function ProjectsSection() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="relative group bg-white/30 dark:bg-white/10 backdrop-blur-2xl border border-white/20 dark:border-white/10 rounded-2xl shadow-xl p-6 transition-all duration-500 hover:shadow-purple-400 hover:shadow-2xl hover:scale-105 hover:-translate-y-1 overflow-hidden"
           >
-            {/* Color Beam on hover */}
             <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-40 transition-all duration-700 bg-gradient-to-br from-purple-300 via-blue-300 to-transparent blur-xl z-0" />
 
             <div className="relative z-10 flex flex-col items-center text-center">
@@ -106,10 +116,20 @@ export default function ProjectsSection() {
               </p>
 
               <div className="flex gap-3 mt-auto">
-                {project.codeLink === "INTERNAL" ? (
+                {/* Code Button */}
+                {project.codeLink === "BOSCH_INTERNAL" ||
+                project.codeLink === "IIIT_INTERNAL" ? (
                   <a
                     href="#"
-                    onClick={handleIIITCodeClick}
+                    onClick={(e) => handleInternalClick(e, project.codeLink)}
+                    className="px-3 py-2 text-xs font-medium rounded-md bg-purple-600 text-white hover:bg-purple-700 shadow-md transition"
+                  >
+                    Code
+                  </a>
+                ) : project.codeLink === "#" ? (
+                  <a
+                    href="#"
+                    onClick={handleUnavailableClick}
                     className="px-3 py-2 text-xs font-medium rounded-md bg-purple-600 text-white hover:bg-purple-700 shadow-md transition"
                   >
                     Code
@@ -118,19 +138,32 @@ export default function ProjectsSection() {
                   <a
                     href={project.codeLink}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="px-3 py-2 text-xs font-medium rounded-md bg-purple-600 text-white hover:bg-purple-700 shadow-md transition"
                   >
                     Code
                   </a>
                 )}
 
-                <a
-                  href={project.liveLink}
-                  target="_blank"
-                  className="px-3 py-2 text-xs font-medium rounded-md bg-blue-600 text-white hover:bg-blue-700 shadow-md transition"
-                >
-                  View
-                </a>
+                {/* Live/View Button */}
+                {project.liveLink === "#" ? (
+                  <a
+                    href="#"
+                    onClick={handleUnavailableClick}
+                    className="px-3 py-2 text-xs font-medium rounded-md bg-blue-600 text-white hover:bg-blue-700 shadow-md transition"
+                  >
+                    View
+                  </a>
+                ) : (
+                  <a
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-2 text-xs font-medium rounded-md bg-blue-600 text-white hover:bg-blue-700 shadow-md transition"
+                  >
+                    View
+                  </a>
+                )}
               </div>
             </div>
           </motion.div>
