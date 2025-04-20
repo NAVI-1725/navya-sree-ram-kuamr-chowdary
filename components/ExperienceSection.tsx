@@ -49,12 +49,7 @@ export default function ExperienceSection() {
         },
       ],
     },
-    {
-      title: "Frontend Intern",
-      org: "CodSoft",
-      desc: "Worked on responsive UI components using React and Tailwind, enhancing usability across various screen sizes.",
-      logo: "/experience/codsoft.png",
-    },
+    
   ];
 
   return (

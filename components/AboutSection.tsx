@@ -19,9 +19,9 @@ interface Skill {
 }
 
 const skills: Skill[] = [
-  { title: "Tech Stack 🧠", description: "Python, C, JS, HTML, CSS, GenAI tools." },
-  { title: "Dev Power ⚙️", description: "MERN, REST APIs, MongoDB, Firebase." },
-  { title: "Creative Edge 🎯", description: "UI/UX enthusiast, minimal & fluid designs." },
+  { title: "Tech Stack🧠", description: "Python, C, JS, HTML, CSS, GenAI tools." },
+  { title: "Dev Power⚙️", description: "MERN, REST APIs, MongoDB, Firebase." },
+  { title: "Creative🎯", description: "UI/UX enthusiast, minimal & fluid designs." },
 ];
 
 export default function AboutSection() {
@@ -44,22 +44,37 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="scroll-mt-32 relative overflow-hidden bg-gradient-to-br from-indigo-100 via-white to-cyan-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-8 md:p-16 min-h-screen flex flex-col items-center justify-center pt-40 pb-20"
+      className="
+        scroll-mt-32 relative overflow-hidden
+        bg-gradient-to-br from-indigo-50 via-gray-50 to-cyan-50
+        dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
+        p-8 md:p-16 min-h-screen flex flex-col items-center justify-center
+        pt-40 pb-20
+      "
     >
       {/* Background Blobs */}
       <div className="absolute top-[-100px] left-[-100px] w-96 h-96 bg-purple-300 dark:bg-purple-800 opacity-20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-[-100px] right-[-100px] w-96 h-96 bg-cyan-300 dark:bg-cyan-800 opacity-20 rounded-full blur-3xl animate-pulse" />
 
       <div className="flex flex-col md:flex-row w-full max-w-7xl items-center justify-between gap-20 relative z-10">
-        {/* Left Side */}
-        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-6">
+        {/* Left Panel */}
+        <div className="
+            flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-6
+            bg-white/90 dark:bg-gray-900/70 backdrop-blur-lg border border-gray-200 dark:border-none
+            p-6 md:p-10 rounded-3xl shadow-xl
+          ">
           <motion.div
             className="relative group w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-indigo-400 via-purple-500 to-pink-400 blur-2xl opacity-50 group-hover:opacity-80 transition duration-500" />
+            <div className="
+                absolute inset-0 rounded-full
+                bg-gradient-to-tr from-indigo-400 via-purple-500 to-pink-400
+                blur-2xl opacity-50 group-hover:opacity-80
+                transition duration-500
+              " />
             <img
               src="/navi1.jpg"
               alt="Profile"
@@ -111,14 +126,19 @@ export default function AboutSection() {
           </motion.p>
         </div>
 
-        {/* Right Side: Skills + GitHub */}
+        {/* Right Panel */}
         <div className="flex-1 flex flex-col items-center gap-12 w-full">
-          {/* Skills Section */}
+          {/* Skills */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
             {skills.map((skill, idx) => (
               <motion.div
                 key={idx}
-                className="group p-4 bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-indigo-500/40 transition-transform transform hover:scale-105 duration-300 text-left flex flex-col justify-between h-44"
+                className="
+                  group p-4 bg-white/90 dark:bg-gray-900 rounded-3xl shadow-lg
+                  hover:shadow-indigo-500/40 transition-transform transform
+                  hover:scale-105 duration-300 text-left flex flex-col
+                  justify-between h-32 border border-gray-200
+                "
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{
@@ -127,10 +147,13 @@ export default function AboutSection() {
                   stiffness: 120,
                 }}
               >
-                <h3 className="text-sm md:text-base font-semibold text-indigo-600 dark:text-indigo-400 group-hover:text-xl transition-all duration-300 mb-2">
+                <h3 className="
+                    text-sm md:text-base font-semibold text-indigo-600
+                    dark:text-indigo-400 group-hover:text-xl transition-all duration-300 mb-1
+                  ">
                   {skill.title}
                 </h3>
-                <p className="text-base md:text-lg text-gray-700 dark:text-gray-200 font-medium leading-snug">
+                <p className="text-sm md:text-base text-gray-700 dark:text-gray-200 font-medium leading-snug">
                   {skill.description}
                 </p>
               </motion.div>
@@ -144,10 +167,10 @@ export default function AboutSection() {
             </h2>
 
             <div className="flex flex-col items-center gap-8">
-              {/* Stats */}
+              {/* Stats Card */}
               <motion.div
                 whileHover={{ scale: 1.03 }}
-                className="bg-white dark:bg-gray-800 p-6 rounded-3xl shadow-xl w-full max-w-md"
+                className="bg-white/90 dark:bg-gray-900 p-6 rounded-3xl shadow-2xl w-full max-w-md border border-gray-200"
               >
                 <img
                   src="https://github-readme-stats.vercel.app/api?username=NAVI-1725&show_icons=true&theme=radical"
@@ -156,10 +179,10 @@ export default function AboutSection() {
                 />
               </motion.div>
 
-              {/* Heatmap */}
+              {/* Heatmap Card */}
               <motion.div
                 whileHover={{ scale: 1.03 }}
-                className="bg-white dark:bg-gray-800 p-6 rounded-3xl shadow-xl overflow-x-auto w-full max-w-md"
+                className="bg-white/90 dark:bg-gray-900 p-6 rounded-3xl shadow-2xl overflow-x-auto w-full max-w-md border border-gray-200"
               >
                 <div
                   className="inline-block"
