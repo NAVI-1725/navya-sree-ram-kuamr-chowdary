@@ -1,0 +1,84 @@
+├── navi-portfolio
+│   ├── .gitignore
+│   ├── et --hard cd15c8f3127252faf59c52045c53eff53d024699
+│   ├── next-env.d.ts
+│   ├── next.config.js
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── postcss.config.js
+│   ├── README.md
+│   ├── structure.txt
+│   ├── tailwind.config.js
+│   ├── tsconfig.json
+├── app
+│   ├── layout.tsx
+│   ├── page.tsx
+├── components
+│   ├── AboutSection.tsx
+│   ├── ContactSection.tsx
+│   ├── DarkModeToggle.tsx
+│   ├── EducationSection.tsx
+│   ├── ExperienceSection.tsx
+│   ├── Footer.tsx
+│   ├── HeroSection.tsx
+│   ├── Navbar.tsx
+│   ├── ProjectsSection.tsx
+│   ├── TechStackSection.jsx
+├── constants
+│   ├── projects.ts
+│   ├── TechStack.js
+├── hooks
+│   ├── useLocalStorage.ts
+├── lib
+│   ├── utils.ts
+├── public
+│   ├── favicon.ico
+│   ├── navi - Copy.jpg
+│   ├── navi.jpg
+│   ├── navi1.jpg
+│   ├── navi2.jpg
+│   ├── navi3.jpg
+│   ├── navi4.jpg
+│   ├── resume.pdf
+├── public\experience
+│   ├── amazon.png
+│   ├── blog.png
+│   ├── bosch.png
+│   ├── bosch_certificate.jpg
+│   ├── iiitr.png
+│   ├── isc.png
+│   ├── resume.png
+├── public\images
+│   ├── careerpoint.jpg
+│   ├── iiitr.jpg
+│   ├── ssvn.png
+├── public\skill logos
+│   ├── aws.png
+│   ├── bootstrap.png
+│   ├── cpp.png
+│   ├── digitalocean.png
+│   ├── expressjs.png
+│   ├── fastapi.svg
+│   ├── firebase.png
+│   ├── flask.webp
+│   ├── flutter.png
+│   ├── git.png
+│   ├── github.png
+│   ├── html5.png
+│   ├── javascript.png
+│   ├── matlab.svg
+│   ├── mongo.svg
+│   ├── Mysql_logo.png
+│   ├── nextjs.png
+│   ├── nodejs.png
+│   ├── nodejs.svg
+│   ├── php.svg
+│   ├── Postgresql.png
+│   ├── python.png
+│   ├── react.svg
+│   ├── selenium.png
+│   ├── tailwindcss.png
+│   ├── typescript.svg
+├── styles
+│   ├── globals.css
+
