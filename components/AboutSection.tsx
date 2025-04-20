@@ -179,7 +179,7 @@ export default function AboutSection() {
                 />
               </motion.div>
 
-              {/* Heatmap Card */}
+              {/* Heatmap Card
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 className="bg-white/90 dark:bg-gray-900 p-6 rounded-3xl shadow-2xl overflow-x-auto w-full max-w-md border border-gray-200"
@@ -205,7 +205,7 @@ export default function AboutSection() {
                     )}
                   </div>
                 </div>
-              </motion.div>
+              // </motion.div> */}
             </div>
           </section>
         </div>
