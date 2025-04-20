@@ -119,9 +119,9 @@ export default function ExperienceSection() {
                   {exp.desc}
                 </p>
 
-                {/* Certificate & LinkedIn */}
+                {/* Centered Certificate & LinkedIn */}
                 {exp.certificatePath && exp.linkedinUrl && (
-                  <div className="flex gap-4 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="flex justify-center gap-4 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <a
                       href={exp.certificatePath}
                       target="_blank"
