@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function ExperienceSection() {
   const experiences = [
     {
-      title: "Project for BOSCH",                  // Renamed title
+      title: "Project for BOSCH",
       org: "BOSCH",
       desc: "Collaborated on Mobility Aftermarket marketplace project for BGSW, implementing full-stack features and presenting to leadership.",
       logo: "/experience/bosch.png",
@@ -49,6 +49,12 @@ export default function ExperienceSection() {
         },
       ],
     },
+    {
+      title: "Frontend Intern",
+      org: "CodSoft",
+      desc: "Worked on responsive UI components using React and Tailwind, enhancing usability across various screen sizes.",
+      logo: "/experience/codsoft.png",
+    },
   ];
 
   return (
@@ -79,12 +85,13 @@ export default function ExperienceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: i * 0.15 }}
             viewport={{ once: true }}
-            className="relative group bg-white/70 dark:bg-white/10 backdrop-blur-2xl border border-gray-200 dark:border-white/20 rounded-3xl shadow-lg p-6 md:p-8 transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:-translate-y-1"
+            className="relative group bg-white/70 dark:bg-white/10 backdrop-blur-2xl border border-gray-200 dark:border-white/20 rounded-3xl shadow-lg p-6 md:p-8 transition-all duration-500 scale-90 hover:scale-105 hover:shadow-2xl hover:-translate-y-1 overflow-hidden"
           >
             {/* Color Beam */}
             <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-40 transition duration-700 bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 dark:from-pink-600 dark:via-purple-600 dark:to-blue-600 blur-2xl z-0" />
 
             <div className="relative z-10 flex flex-col items-center text-center">
+              {/* Logo */}
               {exp.logo && (
                 <div className="mb-4">
                   <Image
@@ -96,54 +103,61 @@ export default function ExperienceSection() {
                   />
                 </div>
               )}
+
+              {/* Title & Org always visible */}
               <h3 className="text-xl md:text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-1">
                 {exp.title}
               </h3>
               <p className="text-gray-800 dark:text-gray-300 font-medium mb-2">
                 {exp.org}
               </p>
-              <p className="text-sm text-gray-700 dark:text-gray-400 leading-relaxed mb-4">
-                {exp.desc}
-              </p>
 
-              {/* Hover buttons for certificate & LinkedIn */}
-              {exp.certificatePath && exp.linkedinUrl && (
-                <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <a
-                    href={exp.certificatePath}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 bg-indigo-500 text-white rounded-full text-sm shadow hover:bg-indigo-600"
-                  >
-                    View Certificate
-                  </a>
-                  <Link
-                    href={exp.linkedinUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 bg-blue-500 text-white rounded-full text-sm shadow hover:bg-blue-600"
-                  >
-                    LinkedIn
-                  </Link>
-                </div>
-              )}
+              {/* Hidden content wrapper */}
+              <div className="w-full overflow-hidden h-0 group-hover:h-auto transition-all duration-300">
+                {/* Description */}
+                <p className="text-sm text-gray-700 dark:text-gray-400 leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {exp.desc}
+                </p>
 
-              {/* Existing blog/project links */}
-              {exp.links && (
-                <div className="flex flex-col gap-2 mt-4">
-                  {exp.links.map((link, idx) => (
+                {/* Certificate & LinkedIn */}
+                {exp.certificatePath && exp.linkedinUrl && (
+                  <div className="flex gap-4 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <a
-                      key={idx}
-                      href={link.url}
-                      className="text-indigo-500 underline text-sm hover:text-indigo-700 transition"
+                      href={exp.certificatePath}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="px-4 py-2 bg-indigo-500 text-white rounded-full text-sm shadow hover:bg-indigo-600"
                     >
-                      {link.name} ↗
+                      View Certificate
                     </a>
-                  ))}
-                </div>
-              )}
+                    <Link
+                      href={exp.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 bg-blue-500 text-white rounded-full text-sm shadow hover:bg-blue-600"
+                    >
+                      LinkedIn
+                    </Link>
+                  </div>
+                )}
+
+                {/* Blog/Project Links */}
+                {exp.links && (
+                  <div className="flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {exp.links.map((link, idx) => (
+                      <a
+                        key={idx}
+                        href={link.url}
+                        className="text-indigo-500 underline text-sm hover:text-indigo-700 transition"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.name} ↗
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </motion.div>
         ))}
