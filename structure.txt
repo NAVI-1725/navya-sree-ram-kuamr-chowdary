@@ -1,3 +1,4 @@
+our project structure
 ├── navi-portfolio
 │   ├── .gitignore
 │   ├── et --hard cd15c8f3127252faf59c52045c53eff53d024699
