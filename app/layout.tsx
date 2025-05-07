@@ -2,10 +2,12 @@
 
 import "../styles/globals.css";
 import { ReactNode } from "react";
+import SeoSchema from "@/components/SeoSchema"; // ✅ Schema markup for Google
 
 export const metadata = {
   title: "Penumarthi Navya Sree Ram Kumar Chowdary - Portfolio",
-  description: "Official portfolio of Penumarthi Navya Sree Ram Kumar Chowdary, a Computer Science Engineer at IIIT Raichur.",
+  description:
+    "Official portfolio of Penumarthi Navya Sree Ram Kumar Chowdary — Computer Science Engineering student at IIIT Raichur. Alumni of Career Point and SSVN School.",
   keywords: [
     // Full name and permutations
     "Penumarthi Navya Sree Ram Kumar Chowdary",
@@ -41,6 +43,7 @@ export const metadata = {
     "SSVN Eluru",
     "IIIT Raichur student portfolio",
 
+    // Portfolio and project tags
     "best CSE portfolio",
     "top engineering student portfolio",
     "modern developer portfolio India",
@@ -49,7 +52,6 @@ export const metadata = {
     "developer portfolio Next.js",
     "Tailwind portfolio",
     "full stack portfolio"
-
   ],
   authors: [{ name: "Penumarthi Navya Sree Ram Kumar Chowdary" }],
   robots: "index, follow",
@@ -58,13 +60,39 @@ export const metadata = {
   },
   icons: {
     icon: "/favicon.ico"
+  },
+  openGraph: {
+    title: "Penumarthi Navya Sree Ram Kumar Chowdary - Portfolio",
+    description: "CSE Student at IIIT Raichur - Explore my projects and journey.",
+    url: "https://navya-sree-ram-kumar-chowdary.vercel.app/",
+    siteName: "Navya Portfolio",
+    images: [
+      {
+        url: "/navi.jpg", // Ensure this exists in public/
+        width: 1200,
+        height: 630,
+        alt: "Penumarthi Navya Sree Ram Kumar Chowdary"
+      }
+    ],
+    locale: "en_US",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Navya Sree Ram Kumar Chowdary | Portfolio",
+    description: "IIIT Raichur | Projects | CSE | Developer Portfolio",
+    images: ["/navi.jpg"],
+    creator: "@yourTwitterHandle" // optional: replace with your handle
   }
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <SeoSchema /> {/* Structured data for Google Search */}
+        {children}
+      </body>
     </html>
   );
 }

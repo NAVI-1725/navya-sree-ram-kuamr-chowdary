@@ -160,7 +160,7 @@ export default function HeroSection() {
         <div className="relative group w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96">
           <Image
             src="/navi.jpg"
-            alt="Navya Sree Ram Kumar Chowdary"
+            alt="Penumarthi Navya Sree Ram Kumar Chowdary - Portfolio Photo"
             fill
             className="object-cover rounded-3xl shadow-2xl border-4 border-indigo-400 dark:border-indigo-600 transition-all duration-500 group-hover:scale-105 group-hover:rotate-1 group-hover:shadow-3xl"
           />
