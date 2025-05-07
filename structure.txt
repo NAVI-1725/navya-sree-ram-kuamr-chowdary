@@ -1,5 +1,5 @@
 our project structure
-├── navi-portfolio
+├── PENUMARTHI NAVYA SREE RAM KUMAR CHOWDARY-portfolio
 │   ├── .gitignore
 │   ├── et --hard cd15c8f3127252faf59c52045c53eff53d024699
 │   ├── next-env.d.ts

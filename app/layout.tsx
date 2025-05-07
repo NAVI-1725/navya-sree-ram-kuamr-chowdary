@@ -4,7 +4,7 @@ import "../styles/globals.css";
 import { ReactNode } from "react";
 
 export const metadata = {
-  title: "Portfolio",
+  title: "PENUMARTHI NAVYA SREE RAM KUMAR CHOWDARY",
   description: "Welcome to Navya Sree Ram Kumar Chowdary's Portfolio Website",
   icons: {
     icon: "/favicon.ico",   
