@@ -1,10 +1,12 @@
-// lib/githubContributions.ts
 export async function getContributions() {
-  const res = await fetch("/api/contributions");
-  if (!res.ok) {
-    console.error("API error:", await res.text());
-    return [];
+  try {
+    const res = await fetch("/api/contributions"); // or GitHub API URL if direct
+    if (!res.ok) throw new Error("Failed to fetch contributions");
+    const data = await res.json();
+    console.log("GitHub Contributions:", data); // ✅ See this in browser dev console
+    return data;
+  } catch (err) {
+    console.error("Error fetching GitHub contributions:", err);
+    return []; // fallback
   }
-  const { weeks } = await res.json();
-  return weeks as { contributionDays: { date: string; contributionCount: number; color: string }[] }[];
 }
