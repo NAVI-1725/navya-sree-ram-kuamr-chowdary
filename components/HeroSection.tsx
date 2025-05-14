@@ -145,7 +145,7 @@ export default function HeroSection() {
           <a href="https://github.com/NAVI-1725" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition">
             <Github className="w-6 h-6 sm:w-7 sm:h-7 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400" />
           </a>
-          <a href="https://www.linkedin.com/in/navya-sree-ram-kumar-chowdary-780157298/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition">
+          <a href="https://www.linkedin.com/in/navya-sree-ram-kumar-chowdary-penumarthi-780157298/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition">
             <Linkedin className="w-6 h-6 sm:w-7 sm:h-7 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400" />
           </a>
           <a href="mailto:navichowdary1725@gmail.com" className="hover:scale-110 transition">
@@ -287,7 +287,7 @@ export default function HeroSection() {
           <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-sm">
             <h4 className="text-xl font-semibold mb-2">🔗 Links</h4>
             <ul className="list-disc list-inside space-y-1">
-              <li><a href="https://www.linkedin.com/in/navya-sree-ram-kumar-chowdary-780157298/" className="text-blue-500 underline">LinkedIn</a></li>
+              <li><a href="https://www.linkedin.com/in/navya-sree-ram-kumar-chowdary-penumarthi-780157298/" className="text-blue-500 underline">LinkedIn</a></li>
               <li><a href="https://github.com/NAVI-1725" className="text-blue-500 underline">GitHub</a></li>
               <li><a href="https://navya-sree-ram-kumar-chowdary.vercel.app/#home" className="text-blue-500 underline">Portfolio</a></li>
               <li><a href="https://medium.com/@navichowdary1725" className="text-blue-500 underline">Medium Blog</a></li>

@@ -23,7 +23,7 @@ export default function ContactSection() {
       shadow: "hover:shadow-red-400",
     },
     {
-      href: "https://www.linkedin.com/in/navya-sree-ram-kumar-chowdary-780157298/",
+      href: "https://www.linkedin.com/in/navya-sree-ram-kumar-chowdary-penumarthi-780157298/",
       icon: <FaLinkedin />,
       color: "text-blue-500",
       shadow: "hover:shadow-blue-400",

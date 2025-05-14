@@ -13,7 +13,7 @@ export default function ExperienceSection() {
       logo: "/experience/bosch.png",
       certificatePath: "/experience/bosch_certificate.jpg",
       linkedinUrl:
-        "https://www.linkedin.com/posts/navya-sree-ram-kumar-chowdary-780157298_genai-innovation-gratitude-activity-7319348936240963584-JGB_?utm_source=share&utm_medium=member_android",
+        "https://www.linkedin.com/posts/navya-sree-ram-kumar-chowdary-penumarthi-780157298_genai-innovation-gratitude-activity-7319348936240963584-KTZW?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEfs1JAB7bmG2Vng1xkTWIgqE5v_3yPeGYg",
     },
     {
       title: "Web Developer",
