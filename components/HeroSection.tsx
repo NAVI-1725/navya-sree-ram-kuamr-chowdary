@@ -195,64 +195,109 @@ export default function HeroSection() {
       </motion.div>
 
       {/* Resume Modal Instance */}
-      <AnimatePresence>
-        {showResume && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 py-6"
-            onClick={handleBackdropClick}
-          >
-            <motion.div
-              ref={resumeRef}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 200, damping: 20 }}
-              className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-3xl w-full p-8 overflow-y-auto max-h-[90vh] scrollbar-thin scrollbar-thumb-indigo-400 dark:scrollbar-thumb-indigo-700"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex justify-between items-center mb-6">
-                <h3 className="text-3xl font-bold text-gray-800 dark:text-white">
-                  👩‍💻 Penumarthi Navya Sree Ram Kumar Chowdary
-                </h3>
-                <button onClick={handleCloseResume} className="text-gray-500 hover:text-red-500 text-2xl font-bold">
-                  ×
-                </button>
-              </div>
-              <div className="grid gap-6">
-                {[
-                  { title: "🎯 Objective", content: "Results-driven CSE student at IIIT Raichur skilled in Python, C, Full-Stack Dev, ML & GenAI. Seeking an internship to apply technical expertise & problem-solving in real-world projects." },
-                  { title: "🎓 Education", content: "B.Tech in Computer Science & Engineering – IIIT Raichur (2022 – 2026 Expected)" },
-                  { title: "🛠️ Skills", content: "Python, C, JavaScript, HTML, CSS, SQL, MERN Stack, Node.js, GenAI, NLP, ML, MySQL, MongoDB, Firebase" },
-                ].map((item, index) => (
-                  <div key={index} className="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-sm transition-all">
-                    <h4 className="text-xl font-semibold mb-2">{item.title}</h4>
-                    <p>{item.content}</p>
-                  </div>
-                ))}
-                <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-sm">
-                  <h4 className="text-xl font-semibold mb-2">💼 Experience</h4>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>Software Engineer Intern @ BOSCH – Built AI chatbot using Python, JavaScript, React, Node.js with AI models like LLAMA, Langchain, Hugging Face.</li>
-                    <li>Web Developer @ IIIT Raichur – Led website redesign, improved accessibility & performance by 40%.</li>
-                    <li>Hackathons – Developed e-commerce recommendation system (Amazon Hackathon), Satellite image classifier (Indian Space Center), AI business analytics tool (Stratovate).</li>
-                  </ul>
-                </div>
-                <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-sm">
-                  <h4 className="text-xl font-semibold mb-2">🚀 Projects</h4>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>Personal Portfolio Website – Built a dynamic, responsive portfolio using React.js, TailwindCSS, Framer Motion.</li>
-                    <li>AI-Powered Resume Builder – Designed a resume generator app leveraging OpenAI APIs.</li>
-                    <li>Chat App – Real-time chat application using Node.js, Socket.io, and MongoDB.</li>
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+<AnimatePresence>
+  {showResume && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 py-6"
+      onClick={handleBackdropClick}
+    >
+      <motion.div
+        ref={resumeRef}
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.8, opacity: 0 }}
+        transition={{ type: "spring", stiffness: 200, damping: 20 }}
+        className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-3xl w-full p-8 overflow-y-auto max-h-[90vh] scrollbar-thin scrollbar-thumb-indigo-400 dark:scrollbar-thumb-indigo-700"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex justify-between items-center mb-6">
+          <h3 className="text-3xl font-bold text-gray-800 dark:text-white">
+            👩‍💻 Penumarthi Navya Sree Ram Kumar Chowdary
+          </h3>
+          <button onClick={handleCloseResume} className="text-gray-500 hover:text-red-500 text-2xl font-bold">
+            ×
+          </button>
+        </div>
+        <div className="grid gap-6">
+          {[
+            {
+              title: "🎯 Professional Summary",
+              content:
+                "Motivated CSE undergraduate at IIIT Raichur (CGPA: 7.6) with experience in GenAI chatbot development, MERN-stack & SQL systems. Completed projects with BOSCH and academic capstones. Seeking an internship to apply full-stack and AI skills in real-world applications.",
+            },
+            {
+              title: "🎓 Education",
+              content: "B.Tech in Computer Science & Engineering – IIIT Raichur (2022 – 2026 Expected)",
+            },
+            {
+              title: "🛠️ Technical Skills",
+              content:
+                "Languages: JavaScript (ES6+), Python, SQL, C, R\nFrameworks: React, Next.js (App Router), Node.js, Express, MERN, LangChain, Framer Motion\nDatabases: MongoDB, MySQL, Firebase\nTools: Git, Docker, Vercel, Linux, Google Analytics",
+            },
+          ].map((item, index) => (
+            <div key={index} className="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-sm transition-all">
+              <h4 className="text-xl font-semibold mb-2">{item.title}</h4>
+              <p className="whitespace-pre-line">{item.content}</p>
+            </div>
+          ))}
+          <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-sm">
+            <h4 className="text-xl font-semibold mb-2">💼 Experience</h4>
+            <ul className="list-disc list-inside space-y-1">
+              <li>
+                GenAI Chatbot Developer @ BOSCH – Developed vehicle diagnostics chatbot using Python, LangChain, LLAMA. Integrated GenAI models with MERN stack.
+              </li>
+              <li>
+                Web Developer @ IIIT Raichur – Redesigned institute website using React; improved performance by 40% and met accessibility standards. Awarded Best UI/UX.
+              </li>
+            </ul>
+          </div>
+          <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-sm">
+            <h4 className="text-xl font-semibold mb-2">🚀 Projects</h4>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Library Management System – Full-stack app using MERN & MySQL; implemented DB normalization and reduced query latency by 25%.</li>
+              <li>College ERP System – Modular ERP (Next.js, Node.js, MongoDB) for academics, finance, hostel & analytics. Deployed with Vercel CI/CD.</li>
+              <li>Personal Portfolio – Built with React, TailwindCSS, Framer Motion. Showcases projects, blogs, and resume.</li>
+            </ul>
+          </div>
+          <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-sm">
+            <h4 className="text-xl font-semibold mb-2">📜 Certifications</h4>
+            <ul className="list-disc list-inside space-y-1">
+              <li>AWS Certified Cloud Practitioner – (In Progress, expected May 2025)</li>
+              <li>Data Science & Statistical Analysis (R & Python) – NIT Surat, May–Jun 2024</li>
+              <li>BOSCH Project Excellence Certificate – Aug 2023</li>
+            </ul>
+          </div>
+          <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-sm">
+            <h4 className="text-xl font-semibold mb-2">🏆 Achievements</h4>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Top 10 Finalist – Amazon Hackathon 2023</li>
+              <li>Best UI/UX Design – IIITR Website Redesign</li>
+            </ul>
+          </div>
+          <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-sm">
+            <h4 className="text-xl font-semibold mb-2">📌 Leadership & Extracurriculars</h4>
+            <ul className="list-disc list-inside space-y-1">
+              <li>NSS Coordinator & EBSB Head – Led social outreach and cultural exchange programs</li>
+              <li>Event Organizer – Managed logistics & PR for tech and cultural fests</li>
+            </ul>
+          </div>
+          <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-sm">
+            <h4 className="text-xl font-semibold mb-2">🔗 Links</h4>
+            <ul className="list-disc list-inside space-y-1">
+              <li><a href="https://www.linkedin.com/in/navya-sree-ram-kumar-chowdary-780157298/" className="text-blue-500 underline">LinkedIn</a></li>
+              <li><a href="https://github.com/NAVI-1725" className="text-blue-500 underline">GitHub</a></li>
+              <li><a href="https://navya-sree-ram-kumar-chowdary.vercel.app/#home" className="text-blue-500 underline">Portfolio</a></li>
+              <li><a href="https://medium.com/@navichowdary1725" className="text-blue-500 underline">Medium Blog</a></li>
+            </ul>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
     </section>
   );
 }
