@@ -89,7 +89,7 @@ export default function ProjectsSection() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, type: "spring" }}
-        className="text-4xl md:text-5xl font-extrabold text-center text-gray-800 dark:text-white mb-12"
+        className="text-4xl md:text-5xl font-extrabold text-center mb-12 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text drop-shadow-2xl"
       >
         🚀 Featured Projects
       </motion.h2>

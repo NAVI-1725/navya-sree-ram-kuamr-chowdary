@@ -13,7 +13,7 @@ export default function TechStackSection() {
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-extrabold text-center text-gray-800 dark:text-gray-100 mb-16 font-montserrat tracking-tight"
+        className="text-4xl md:text-5xl font-extrabold text-center mb-16 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text drop-shadow-2xl tracking-tight"
       >
         💻 Tech Stack & Tools
       </motion.h2>

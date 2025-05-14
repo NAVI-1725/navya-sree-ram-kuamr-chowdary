@@ -146,7 +146,7 @@ export default function AboutSection() {
         {/* GitHub Section */}
         <section id="github" className="mt-28">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 dark:text-white mb-10">
-            🚀 My GitHub Contributions
+             My GitHub Contributions
           </h2>
 
           <div className="flex flex-col items-center gap-10">
@@ -170,7 +170,7 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 0.8 }}
         >
-          📬 Let's Connect!
+          🔗 Let's Connect!
         </motion.button>
       </section>
     </>

@@ -67,7 +67,7 @@ export default function ContactSection() {
             transition={{ duration: 0.9, ease: "easeOut" }}
             className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 text-transparent bg-clip-text drop-shadow-2xl mb-16 md:mb-24"
           >
-            🚀 Get In Touch
+            🔗 Get In Touch
           </motion.h2>
 
           {/* Social Icons */}
