@@ -5,71 +5,57 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function EducationSection() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   return (
     <section
       id="education"
       className="relative min-h-screen bg-gradient-to-br from-[#f0f9ff] via-[#e0f2fe] to-[#fdf2f8] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 pt-24 px-6 pb-20 overflow-hidden transition-colors duration-500"
     >
-      {/* Background Animated Blobs */}
+      {/* Blurred Background Circles */}
       <div className="absolute top-0 left-0 w-full h-full -z-10">
         <div className="absolute w-80 h-80 bg-purple-300 dark:bg-purple-700 opacity-20 rounded-full blur-3xl animate-pulse top-10 left-10" />
         <div className="absolute w-80 h-80 bg-pink-300 dark:bg-pink-700 opacity-20 rounded-full blur-3xl animate-ping right-10 bottom-10" />
       </div>
 
+      {/* Header */}
       <motion.h2
-        initial={{ opacity: 0, y: -20 }}
+        initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-extrabold text-center mb-16 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text drop-shadow-lg"
+        transition={{ duration: 0.8, type: "spring" }}
+        className="text-4xl md:text-5xl font-extrabold text-center mb-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text drop-shadow-lg"
       >
-        🎓 Education
+        🎓 My Educational Journey
       </motion.h2>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="max-w-3xl mx-auto flex flex-col gap-12">
         {educationList.map((edu, index) => (
           <motion.div
             key={edu.title}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
-            animate={
-              hoveredIndex === null
-                ? { scale: 1, zIndex: 1, opacity: 1 }
-                : hoveredIndex === index
-                ? { scale: 1.15, zIndex: 10, opacity: 1, rotate: 0 }
-                : { scale: 0.9, zIndex: 0, opacity: 0.6, rotate: -1 }
-            }
-            transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            className={`flex flex-col items-center text-center p-8 backdrop-blur-2xl border rounded-3xl shadow-2xl transition-all duration-500 ${
-              hoveredIndex === null
-                ? "bg-white/70 dark:bg-white/10 border-white/20 dark:border-white/10"
-                : hoveredIndex === index
-                ? "bg-white dark:bg-white/10 shadow-xl shadow-purple-300 dark:shadow-purple-700"
-                : "bg-white/50 dark:bg-white/5"
-            }`}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.2 }}
+            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: index * 0.2, type: "spring" }}
+            className="flex flex-col md:flex-row items-center md:items-start gap-6 bg-white/60 dark:bg-white/10 backdrop-blur-xl p-6 rounded-3xl border border-white/20 dark:border-white/10 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-transform duration-300"
           >
-            {/* Logo Section */}
-            <div className="w-24 h-24 mb-6 relative">
+            <div className="w-24 h-24 md:w-28 md:h-28 relative flex-shrink-0">
               <Image
                 src={edu.image}
                 alt={edu.alt}
                 fill
-                className="object-contain rounded-2xl shadow-lg dark:shadow-gray-700"
+                className="object-contain rounded-2xl shadow-md dark:shadow-gray-700"
                 sizes="(max-width: 768px) 100px, 200px"
               />
             </div>
 
-            <h3 className="text-xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">
-              {edu.title}
-            </h3>
-            <p className="text-base text-gray-700 dark:text-gray-300">
-              {edu.institution}
-            </p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">{edu.year}</p>
+            <div className="flex flex-col text-center md:text-left">
+              <h3 className="text-2xl font-semibold text-indigo-600 dark:text-indigo-400">
+                {edu.title}
+              </h3>
+              <p className="text-base text-gray-800 dark:text-gray-200 mt-1">
+                {edu.institution}
+              </p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                {edu.year}
+              </p>
+            </div>
           </motion.div>
         ))}
       </div>
