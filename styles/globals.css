@@ -181,3 +181,7 @@ ul li {
     @apply max-w-6xl mx-auto px-4 sm:px-8;
   }
 }
+/* Prevent horizontal scroll on all pages */
+html, body {
+  overflow-x: hidden;
+}

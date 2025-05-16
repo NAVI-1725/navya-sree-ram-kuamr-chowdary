@@ -98,7 +98,7 @@ export default function HeroSection() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-800 dark:text-white leading-snug">
+        <h1 className="text-[clamp(1.8rem,5vw,3rem)] font-extrabold font-extrabold text-gray-800 dark:text-white leading-snug">
           Hi, I&apos;m{' '}
           <span className="text-indigo-600 dark:text-indigo-400">
             Navya Sree Ram Kumar Chowdary
@@ -125,7 +125,7 @@ export default function HeroSection() {
             <ArrowRight className="w-5 h-5" />
           </button>
         </a>
-        <div className="flex flex-wrap justify-center md:justify-start gap-6 sm:gap-8 mt-10">
+        <div className="flex flex-wrap justify-center md:justify-start gap-4 sm:gap-6 mt-8">
           {[
             { title: "5+", desc: "Projects" },
             { title: "2+", desc: "Years Experience" },
@@ -157,7 +157,7 @@ export default function HeroSection() {
       {/* Right Image & Resume */}
       <motion.div className="flex-1 flex flex-col items-center" initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1 }}>
         {/* Profile Photo */}
-        <div className="relative group w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96">
+        <div className="relative group w-full max-w-[280px] sm:max-w-[320px] md:max-w-[384px] aspect-square">
           <Image
             src="/navi.jpg"
             alt="Penumarthi Navya Sree Ram Kumar Chowdary - Portfolio Photo"

@@ -61,9 +61,10 @@ export default function AboutSection() {
       </Head>
 
       <section
-        id="about"
-        className="scroll-mt-32 relative bg-gradient-to-br from-indigo-50 via-gray-50 to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 px-6 md:px-12 pt-32 pb-24 min-h-screen"
-      >
+  id="about"
+  className="scroll-mt-32 relative overflow-x-hidden bg-gradient-to-br from-indigo-50 via-gray-50 to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 px-6 md:px-12 pt-32 pb-24 min-h-screen"
+>
+
         <div className="absolute top-[-100px] left-[-100px] w-96 h-96 bg-purple-300 dark:bg-purple-800 opacity-20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-[-100px] right-[-100px] w-96 h-96 bg-cyan-300 dark:bg-cyan-800 opacity-20 rounded-full blur-3xl animate-pulse" />
 
