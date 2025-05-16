@@ -7,8 +7,8 @@ import SeoSchema from "@/components/SeoSchema";
 export const metadata = {
   title: "Penumarthi Navya Sree Ram Kumar Chowdary - Portfolio",
   description:
-    "Official portfolio of Penumarthi Navya Sree Ram Kumar Chowdary — Computer Science Engineering student at IIIT Raichur. Alumni of Career Point college and SSVN School.",
-  keywords: [
+  "The official portfolio of Penumarthi Navya Sree Ram Kumar Chowdary — a passionate Computer Science undergraduate from IIIT Raichur. He is currently interning at Franklin Templeton, serves as the Head of the EBSB Club, and is a key contributor to IIIT Raichur’s official website team. Former NSS Coordinator, he also led the development of a GenAI-powered Vehicle Troubleshooting Assistant for technicians at BOSCH. Alumni of Career Point and SSVN School, he thrives at the intersection of engineering, innovation, and design.",
+keywords: [
     // Full name and permutations
     "Penumarthi Navya Sree Ram Kumar Chowdary",
     "Penumarthi Navya SreeRam Kumar Chowdary",
