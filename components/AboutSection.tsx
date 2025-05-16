@@ -99,7 +99,7 @@ export default function AboutSection() {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              I'm <strong className="text-indigo-600 dark:text-indigo-400">Penumarthi Navya Sree Ram Kumar Chowdary</strong>, a <strong>CSE undergraduate at IIIT Raichur</strong> 🇮🇳. I specialize in <strong>GenAI</strong>, the <strong>MERN stack</strong>, and full-stack web systems. Passionate about fusing <span className="text-cyan-600 dark:text-cyan-400 font-semibold">technology and aesthetics</span> to create scalable, modern digital products.
+              I'm <strong className="text-indigo-600 dark:text-indigo-400">Penumarthi Navya Sree Ram Kumar Chowdary</strong>, a <strong>CSE undergraduate at IIIT Raichur</strong>+. I specialize in <strong>GenAI</strong>, the <strong>MERN stack</strong>, and full-stack web systems. Passionate about fusing <span className="text-cyan-600 dark:text-cyan-400 font-semibold">technology and aesthetics</span> to create scalable, modern digital products.
             </motion.p>
 
             <motion.p
@@ -108,7 +108,7 @@ export default function AboutSection() {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              I built an <strong>AI chatbot with BOSCH</strong> using LLMs and LangChain, led the <strong>IIIT Raichur website revamp</strong> 🖌️, and was a <strong>Top 10 Finalist</strong> at the <strong>Amazon Hackathon</strong> 🚀. Currently building a commercial-grade College ERP system.
+              I built an <strong>AI chatbot with BOSCH</strong> using LLMs and LangChain, led the <strong>IIIT Raichur website revamp</strong> , and was a <strong>Top 10 Finalist</strong> at the <strong>Amazon Hackathon</strong> . Currently building a commercial-grade College ERP system.
             </motion.p>
 
             <motion.p
